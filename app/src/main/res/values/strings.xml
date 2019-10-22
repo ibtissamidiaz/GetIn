@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">GetIn</string>
+    <string name="log_in">Log In</string>
+    <string name="continuer_autant_que">Continuer autant que ...</string>
+    <string name="covoitureur">Covoitureur</string>
+    <string name="covoituré">Covoituré</string>
+</resources>
