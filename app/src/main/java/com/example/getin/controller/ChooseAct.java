@@ -1,8 +1,10 @@
-package com.example.getin;
+package com.example.getin.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.getin.R;
 
 public class ChooseAct extends AppCompatActivity {
 

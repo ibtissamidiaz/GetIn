@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#e1e8ec"
-    tools:context=".ChooseAct">
+    tools:context=".controller.ChooseAct">
 
     <TextView
         android:id="@+id/textView2"
