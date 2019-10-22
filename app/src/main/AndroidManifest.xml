@@ -10,7 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".controller.covoitureur.ConsulterCovoitureur"></activity>
+        <activity android:name=".controller.covoitureur.AnnonceCovoitureurForm"></activity>
         <activity android:name=".controller.covoiture.ConsulterCovoiture" />
+        <activity android:name=".controller.covoiture.AnnonceCovoitureForm" />
         <activity android:name=".controller.ChooseAct" />
         <activity android:name=".controller.MainActivity">
             <intent-filter>

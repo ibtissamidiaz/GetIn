@@ -9,12 +9,13 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="255dp"
-        android:layout_height="36dp"
+        android:layout_width="355dp"
+        android:layout_height="45dp"
+        android:fontFamily="@font/rainball_font"
         android:text="@string/continuer_autant_que"
         android:textAlignment="center"
-        android:textSize="24sp"
-        android:fontFamily="@font/rainball_font"
+        android:textColor="#4C5175"
+        android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,22 +36,27 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintVertical_weight="0.136" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/imageView2"
         android:layout_width="188dp"
         android:layout_height="188dp"
         android:layout_marginTop="44dp"
+        android:scaleType="fitCenter"
+        android:backgroundTint="#e1e8ec"
         android:contentDescription="@string/covoituré"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
+        android:onClick="goToAjouterAnnonceCovoiture"
         app:srcCompat="@drawable/covoiture" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/imageView"
         android:layout_width="188dp"
         android:layout_height="188dp"
+        android:scaleType="fitCenter"
+        android:backgroundTint="#e1e8ec"
         android:contentDescription="@string/covoitureur"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,6 +64,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.055"
+        android:onClick="goToAjouterAnnonceCovoitureur"
         app:srcCompat="@drawable/covoitureur" />
 
     <TextView
