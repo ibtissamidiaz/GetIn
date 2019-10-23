@@ -13,4 +13,7 @@
     <string name="prix">Prix</string>
     <string name="description">Description</string>
     <string name="nombre_de_personnes">Nombre de personnes</string>
+    <string name="mes_annonces">Mes annonces</string>
+    <string name="mes_demandes">Mes demandes</string>
+    <string name="deconnecter">Se déconnecter</string>
 </resources>
