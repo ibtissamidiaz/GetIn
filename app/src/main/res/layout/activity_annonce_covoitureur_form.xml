@@ -34,7 +34,7 @@
         app:layout_constraintTop_toBottomOf="@+id/titre" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/ed_point_depart"
         android:layout_width="164dp"
         android:layout_height="40dp"
         android:ems="10"
@@ -82,17 +82,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.092"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/ed_point_depart" />
 
     <EditText
-        android:id="@+id/et_temps_depart"
+        android:id="@+id/ed_temps_depart"
         android:layout_width="164dp"
         android:layout_height="40dp"
         android:ems="10"
         android:hint="(e.g., 12/11/2019 - 13h30)"
         android:inputType="textPersonName"
         android:textSize="12dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/et_temps_arrivee"
+        app:layout_constraintBaseline_toBaselineOf="@+id/ed_temps_arrivee"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.108"
         app:layout_constraintStart_toStartOf="parent" />
@@ -110,7 +110,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ed_point_arrivee" />
 
     <EditText
-        android:id="@+id/et_temps_arrivee"
+        android:id="@+id/ed_temps_arrivee"
         android:layout_width="164dp"
         android:layout_height="40dp"
         android:layout_marginTop="12dp"
@@ -133,10 +133,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.095"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_temps_depart" />
+        app:layout_constraintTop_toBottomOf="@+id/ed_temps_depart" />
 
     <EditText
-        android:id="@+id/et_nbr_places"
+        android:id="@+id/ed_nbr_places"
         android:layout_width="164dp"
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
@@ -159,17 +159,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.613"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_temps_arrivee" />
+        app:layout_constraintTop_toBottomOf="@+id/ed_temps_arrivee" />
 
     <EditText
-        android:id="@+id/et_prix"
+        android:id="@+id/ed_prix"
         android:layout_width="164dp"
         android:layout_height="40dp"
         android:ems="10"
         android:hint="(e.g., 50 MAD)"
         android:inputType="textPersonName"
         android:textSize="12dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/et_nbr_places"
+        app:layout_constraintBaseline_toBaselineOf="@+id/ed_nbr_places"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.894"
         app:layout_constraintStart_toStartOf="parent" />
@@ -184,7 +184,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.082"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_nbr_places" />
+        app:layout_constraintTop_toBottomOf="@+id/ed_nbr_places" />
 
     <EditText
         android:id="@+id/ed_description"
@@ -200,7 +200,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_description" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button_ajouter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"

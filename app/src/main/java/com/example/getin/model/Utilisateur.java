@@ -1,7 +1,6 @@
 package com.example.getin.model;
 
 public class Utilisateur {
-    private long utilisateur_id;
     private String nom;
     private String prenom;
     private int age;
@@ -10,8 +9,7 @@ public class Utilisateur {
     private String CIN;
     private Voiture voiture;
 
-    public Utilisateur(long utilisateur_id, String nom, String prenom, int age, String profession, String telephone, String CIN, Voiture voiture) {
-        this.utilisateur_id = utilisateur_id;
+    public Utilisateur(String nom, String prenom, int age, String profession, String telephone, String CIN, Voiture voiture) {
         this.nom = nom;
         this.prenom = prenom;
         this.age = age;
@@ -22,10 +20,6 @@ public class Utilisateur {
     }
 
     public Utilisateur() {}
-
-    public long getUtilisateur_id() {
-        return utilisateur_id;
-    }
 
     public String getNom() {
         return nom;
@@ -53,10 +47,6 @@ public class Utilisateur {
 
     public Voiture getVoiture() {
         return voiture;
-    }
-
-    public void setUtilisateur_id(long utilisateur_id) {
-        this.utilisateur_id = utilisateur_id;
     }
 
     public void setNom(String nom) {
