@@ -1,190 +1,197 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#e1e8ec"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:backgroundTint="#e1e8ec"
-    tools:context=".controller.covoiture.AnnonceCovoitureForm">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/titre"
-        android:layout_width="355dp"
-        android:layout_height="45dp"
-        android:fontFamily="@font/rainball_font"
-        android:text="@string/ajouter_annonce"
-        android:textAlignment="center"
-        android:textColor="#4C5175"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.051" />
-
-    <TextView
-        android:id="@+id/tv_point_depart"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:text="@string/point_de_depart"
-        android:textColor="#4C5175"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.089"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titre" />
+        android:background="#e1e8ec">
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="164dp"
-        android:layout_height="40dp"
-        android:ems="10"
-        android:hint="(e.g., Rue Abelkarim Khettabi)"
-        android:inputType="textPersonName"
-        android:textSize="12dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/ed_point_arrivee"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.107"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/titre"
+            android:layout_width="355dp"
+            android:layout_height="45dp"
+            android:fontFamily="@font/rainball_font"
+            android:text="@string/ajouter_annonce"
+            android:textAlignment="center"
+            android:textColor="#4C5175"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.051" />
 
-    <TextView
-        android:id="@+id/tv_point_arrivee"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:text="@string/point_d_arrivee"
-        android:textColor="#4C5175"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.69"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titre" />
+        <TextView
+            android:id="@+id/tv_point_depart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
+            android:text="@string/point_de_depart"
+            android:textColor="#4C5175"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.089"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titre" />
 
-    <EditText
-        android:id="@+id/ed_point_arrivee"
-        android:layout_width="164dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:hint="(e.g., Rue Palestine)"
-        android:inputType="textPersonName"
-        android:textSize="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.894"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_point_arrivee" />
+        <EditText
+            android:id="@+id/ed_point_depart"
+            android:layout_width="164dp"
+            android:layout_height="40dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="(e.g., Rue Abelkarim Khettabi)"
+            android:inputType="textPersonName"
+            android:textSize="12sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/ed_point_arrivee"
+            app:layout_constraintEnd_toStartOf="@+id/ed_point_arrivee"
+            app:layout_constraintHorizontal_bias="0.509"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_temps_depart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/temps_de_depart"
-        android:textColor="#4C5175"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.092"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        <TextView
+            android:id="@+id/tv_point_arrivee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
+            android:text="@string/point_d_arrivee"
+            android:textColor="#4C5175"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.69"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titre" />
 
-    <EditText
-        android:id="@+id/et_temps_depart"
-        android:layout_width="164dp"
-        android:layout_height="40dp"
-        android:ems="10"
-        android:hint="(e.g., 12/11/2019 - 13h30)"
-        android:inputType="textPersonName"
-        android:textSize="12dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/et_temps_arrivee"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.108"
-        app:layout_constraintStart_toStartOf="parent" />
+        <EditText
+            android:id="@+id/ed_point_arrivee"
+            android:layout_width="164dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="28dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="(e.g., Rue Palestine)"
+            android:inputType="textPersonName"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_point_arrivee" />
 
-    <TextView
-        android:id="@+id/tv_temps_arrivee"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/temps_d_arrivee"
-        android:textColor="#4C5175"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.712"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_point_arrivee" />
+        <TextView
+            android:id="@+id/tv_temps_depart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/temps_de_depart"
+            android:textColor="#4C5175"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.092"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ed_point_depart" />
 
-    <EditText
-        android:id="@+id/et_temps_arrivee"
-        android:layout_width="164dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:hint="(e.g., 12/11/2019 - 13h40)"
-        android:inputType="textPersonName"
-        android:textSize="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.894"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_temps_arrivee" />
+        <EditText
+            android:id="@+id/ed_temps_depart"
+            android:layout_width="164dp"
+            android:layout_height="40dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="(e.g., 12/11/2019 - 13h30)"
+            android:inputType="textPersonName"
+            android:textSize="12sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/ed_temps_arrivee"
+            app:layout_constraintEnd_toStartOf="@+id/ed_temps_arrivee"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_nbr_places"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="@string/nombre_de_personnes"
-        android:textColor="#4C5175"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_temps_depart" />
+        <TextView
+            android:id="@+id/tv_temps_arrivee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/temps_d_arrivee"
+            android:textColor="#4C5175"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.712"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ed_point_arrivee" />
 
-    <EditText
-        android:id="@+id/et_nbr_places"
-        android:layout_width="164dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:hint="(e.g., 3)"
-        android:inputType="textPersonName"
-        android:textSize="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_nbr_places" />
+        <EditText
+            android:id="@+id/ed_temps_arrivee"
+            android:layout_width="164dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="28dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="(e.g., 12/11/2019 - 13h40)"
+            android:inputType="textPersonName"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_temps_arrivee" />
 
-    <TextView
-        android:id="@+id/tv_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="@string/description"
-        android:textColor="#4C5175"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.082"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_nbr_places" />
+        <TextView
+            android:id="@+id/tv_nbr_personnes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="@string/nombre_de_personnes"
+            android:textColor="#4C5175"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ed_temps_depart" />
 
-    <EditText
-        android:id="@+id/ed_description"
-        android:layout_width="358dp"
-        android:layout_height="78dp"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_description" />
+        <EditText
+            android:id="@+id/ed_nbr_personnes"
+            android:layout_width="164dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="(e.g., 3)"
+            android:inputType="textPersonName"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_nbr_personnes" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="@color/colorAccent"
-        android:text="@string/ajouter_annonce"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_description" />
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/description"
+            android:textColor="#4C5175"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.082"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ed_nbr_personnes" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <EditText
+            android:id="@+id/ed_description"
+            android:layout_width="358dp"
+            android:layout_height="78dp"
+            android:layout_marginTop="24dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_description" />
+
+        <Button
+            android:id="@+id/button_ajouter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/colorAccent"
+            android:text="@string/ajouter_annonce"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ed_description" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,25 +1,23 @@
 package com.example.getin.model;
 
-public class Voiture {
+import java.io.Serializable;
 
-    private long num_immatriculation;
+public class Voiture implements Serializable {
+
+    private String num_immatriculation;
     private int nbr_places;
-    private String marque;
-    private String type;
-    private String assurance;
+    private String nom_voiture;
 
-    public Voiture(long num_immatriculation, int nbr_places, String marque, String type, String assurance) {
+    public Voiture(String num_immatriculation,  String nom_voiture, int nbr_places) {
         this.num_immatriculation = num_immatriculation;
         this.nbr_places = nbr_places;
-        this.marque = marque;
-        this.type = type;
-        this.assurance = assurance;
+        this.nom_voiture = nom_voiture;
     }
 
     public Voiture() {
     }
 
-    public long getNum_immatriculation() {
+    public String getNum_immatriculation() {
         return num_immatriculation;
     }
 
@@ -28,18 +26,10 @@ public class Voiture {
     }
 
     public String getMarque() {
-        return marque;
+        return nom_voiture;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public String getAssurance() {
-        return assurance;
-    }
-
-    public void setNum_immatriculation(long num_immatriculation) {
+    public void setNum_immatriculation(String num_immatriculation) {
         this.num_immatriculation = num_immatriculation;
     }
 
@@ -47,19 +37,8 @@ public class Voiture {
         this.nbr_places = nbr_places;
     }
 
-    public void setMarque(String marque) {
-        this.marque = marque;
+    public void setMarque(String nom_voiture) {
+        this.nom_voiture = nom_voiture;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public void setAssurance(String assurance) {
-        this.assurance = assurance;
-    }
-
-    //TEEEEES
-    //AYA TEST
-    //Hayat
 }

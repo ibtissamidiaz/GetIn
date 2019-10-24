@@ -16,4 +16,6 @@
     <string name="mes_annonces">Mes annonces</string>
     <string name="mes_demandes">Mes demandes</string>
     <string name="deconnecter">Se déconnecter</string>
+    <string name="voiture_associee">Info de voiture</string>
+    <string name="suivant">Suivant</string>
 </resources>
