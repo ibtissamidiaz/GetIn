@@ -62,21 +62,35 @@ public class InfoVoiture extends AppCompatActivity {
 
                 String num_im = num_imm.getText().toString().trim();
                 String n_voiture = nom_v.getText().toString().trim();
-                int nb_pl2 = Integer.parseInt(nbr_places2.getText().toString().trim());
+                String np2 = nbr_places2.getText().toString().trim();
 
-                voiture = new Voiture(num_im,n_voiture,nb_pl2);
+                if (num_im.matches("") || n_voiture.matches("") || np2.matches(""))
+                    Toast.makeText(InfoVoiture.this, "Veulliez remplir les champs obligatoires", Toast.LENGTH_SHORT).show();
+                else{
+                    if(! num_im.matches("^([0-9]{5})-(\\w)-([0-9]{1,2}$)"))
+                        Toast.makeText(InfoVoiture.this, "Numero d'immatriculation incorrect", Toast.LENGTH_SHORT).show();
+                    else{
+                        if(! np2.matches("^(10|[0-9])$") )
+                            Toast.makeText(InfoVoiture.this, "Nombre de places invalide", Toast.LENGTH_SHORT).show();
+                        else{
+                            annonceCovoitureur = (AnnonceCovoitureur) getIntent().getSerializableExtra("annonce");
+                            int nb_pl2 = Integer.parseInt(np2);
 
-                annonceCovoitureur = (AnnonceCovoitureur) getIntent().getSerializableExtra("annonce");
+                            if(nb_pl2 < annonceCovoitureur.getNbr_personnes())
+                                Toast.makeText(InfoVoiture.this, "Nombre de places invalide\n Inferieur au nombre de places disponibles", Toast.LENGTH_SHORT).show();
+                            else{
+                                voiture = new Voiture(num_im,n_voiture,nb_pl2);
 
-                if(annonceCovoitureur != null) annonceCovoitureur.setVoiture(voiture);
+                                if(annonceCovoitureur != null) annonceCovoitureur.setVoiture(voiture);
 
-                ref.child(String.valueOf(maxId + 1)).setValue(annonceCovoitureur);
-                Toast.makeText(InfoVoiture.this, "Annonce ajouté !", Toast.LENGTH_LONG).show();
-                startActivity(new Intent(InfoVoiture.this, MainActivity.class));
-
+                                ref.child(String.valueOf(maxId + 1)).setValue(annonceCovoitureur);
+                                Toast.makeText(InfoVoiture.this, "Annonce ajouté !", Toast.LENGTH_LONG).show();
+                                startActivity(new Intent(InfoVoiture.this, MainActivity.class));
+                            }
+                        }
+                    }
+                }
             }
         });
-
     }
-
 }

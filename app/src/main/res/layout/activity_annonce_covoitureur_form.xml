@@ -60,7 +60,7 @@
             android:text="@string/point_d_arrivee"
             android:textColor="#4C5175"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.69"
+            app:layout_constraintHorizontal_bias="0.71"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/titre1" />
 
@@ -90,19 +90,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ed_point_depart1" />
 
-        <EditText
-            android:id="@+id/ed_temps_depart1"
-            android:layout_width="164dp"
-            android:layout_height="40dp"
-            android:autofillHints=""
-            android:ems="10"
-            android:hint="(e.g., 12/11/2019 - 13h30)"
-            android:inputType="textPersonName"
-            android:textSize="12sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/ed_temps_arrivee1"
-            app:layout_constraintEnd_toStartOf="@+id/ed_temps_arrivee1"
-            app:layout_constraintStart_toStartOf="parent" />
-
         <TextView
             android:id="@+id/tv_temps_arrivee1"
             android:layout_width="wrap_content"
@@ -111,7 +98,7 @@
             android:text="@string/temps_d_arrivee"
             android:textColor="#4C5175"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.712"
+            app:layout_constraintHorizontal_bias="0.734"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ed_point_arrivee1" />
 
@@ -119,15 +106,51 @@
             android:id="@+id/ed_temps_arrivee1"
             android:layout_width="164dp"
             android:layout_height="40dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="64dp"
             android:layout_marginEnd="28dp"
-            android:autofillHints=""
             android:ems="10"
-            android:hint="(e.g., 12/11/2019 - 13h40)"
             android:inputType="textPersonName"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_temps_arrivee1" />
+
+        <Button
+            android:id="@+id/bt_tps_arr"
+            android:layout_width="108dp"
+            android:layout_height="41dp"
+            android:backgroundTint="@color/colorAccent"
+            android:text="@string/choisir"
+            app:layout_constraintBottom_toTopOf="@+id/ed_temps_arrivee1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.729"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_temps_arrivee1"
+            app:layout_constraintVertical_bias="0.372" />
+
+        <EditText
+            android:id="@+id/ed_temps_depart1"
+            android:layout_width="164dp"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textSize="12sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/ed_temps_arrivee1"
+            app:layout_constraintEnd_toStartOf="@+id/ed_temps_arrivee1"
+            app:layout_constraintHorizontal_bias="0.509"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/bt_tps_dep"
+            android:layout_width="109dp"
+            android:layout_height="39dp"
+            android:backgroundTint="@color/colorAccent"
+            android:text="@string/choisir"
+            app:layout_constraintBottom_toTopOf="@+id/ed_temps_depart1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.092"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_temps_depart1"
+            app:layout_constraintVertical_bias="0.396" />
 
         <TextView
             android:id="@+id/tv_nbr_places1"
@@ -149,7 +172,7 @@
             android:autofillHints=""
             android:ems="10"
             android:hint="(e.g., 3)"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:textSize="12sp"
             app:layout_constraintEnd_toStartOf="@+id/ed_prix1"
             app:layout_constraintStart_toStartOf="parent"
@@ -175,7 +198,7 @@
             android:autofillHints=""
             android:ems="10"
             android:hint="(e.g., 50 MAD)"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:textSize="12sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/ed_nbr_places1"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -194,14 +217,14 @@
 
         <EditText
             android:id="@+id/ed_description1"
-            android:layout_width="358dp"
-            android:layout_height="78dp"
+            android:layout_width="356dp"
+            android:layout_height="44dp"
             android:layout_marginTop="24dp"
             android:autofillHints=""
-            android:textSize="12sp"
             android:ems="10"
             android:gravity="start|top"
             android:inputType="textMultiLine"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
