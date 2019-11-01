@@ -16,7 +16,6 @@ import android.widget.Toast;
 
 import com.example.getin.R;
 import com.example.getin.controller.MainActivity;
-import com.example.getin.controller.covoitureur.AnnonceCovoitureurForm;
 import com.example.getin.model.AnnonceCovoiture;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
