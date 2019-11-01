@@ -5,15 +5,19 @@
     <string name="ajouter_annonce">Ajouter une annonce</string>
     <string name="covoitureur">Covoitureur</string>
     <string name="covoituré">Covoituré</string>
-    <string name="point_de_depart">Point de départ</string>
-    <string name="point_d_arrivee">Point d\'arrivée</string>
-    <string name="temps_de_depart">Temps de départ</string>
-    <string name="temps_d_arrivee">Temps d\'arrivée</string>
-    <string name="nombre_de_places_ndisponibles">Nombre de places\ndisponibles</string>
-    <string name="prix">Prix</string>
+    <string name="point_de_depart">Point de départ *</string>
+    <string name="point_d_arrivee">Point d\'arrivée *</string>
+    <string name="temps_de_depart">Temps de départ *</string>
+    <string name="temps_d_arrivee">Temps d\'arrivée *</string>
+    <string name="nombre_de_places_ndisponibles">Nombre de places\ndisponibles *</string>
+    <string name="nombre_de_places_voiture">Capacité (Nombre de places / \nchauffeur exclus) *</string>
+    <string name="prix">Prix *</string>
     <string name="description">Description</string>
-    <string name="nombre_de_personnes">Nombre de personnes</string>
+    <string name="nombre_de_personnes">Nombre de personnes *</string>
     <string name="mes_annonces">Mes annonces</string>
     <string name="mes_demandes">Mes demandes</string>
     <string name="deconnecter">Se déconnecter</string>
+    <string name="voiture_associee">Info de voiture</string>
+    <string name="suivant">Suivant</string>
+    <string name="choisir">Choisir</string>
 </resources>

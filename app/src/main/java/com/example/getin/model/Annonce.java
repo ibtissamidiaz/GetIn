@@ -1,6 +1,8 @@
 package com.example.getin.model;
 
-public class Annonce {
+import java.io.Serializable;
+
+public class Annonce implements Serializable {
     private String heure_depart;
     private String heure_arrivee;
     private String point_depart;

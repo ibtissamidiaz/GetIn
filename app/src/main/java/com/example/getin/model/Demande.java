@@ -1,6 +1,8 @@
 package com.example.getin.model;
 
-public class Demande {
+import java.io.Serializable;
+
+public class Demande implements Serializable {
     private long utilisateur_id;
     private long annonce_id;
     private String etat;

@@ -1,22 +1,22 @@
 package com.example.getin.model;
 
-public class Utilisateur {
+import java.io.Serializable;
+
+public class Utilisateur implements Serializable {
     private String nom;
     private String prenom;
     private int age;
     private String profession;
     private String telephone;
     private String CIN;
-    private Voiture voiture;
 
-    public Utilisateur(String nom, String prenom, int age, String profession, String telephone, String CIN, Voiture voiture) {
+    public Utilisateur(String nom, String prenom, int age, String profession, String telephone, String CIN) {
         this.nom = nom;
         this.prenom = prenom;
         this.age = age;
         this.profession = profession;
         this.telephone = telephone;
         this.CIN = CIN;
-        this.voiture = voiture;
     }
 
     public Utilisateur() {}
@@ -45,10 +45,6 @@ public class Utilisateur {
         return CIN;
     }
 
-    public Voiture getVoiture() {
-        return voiture;
-    }
-
     public void setNom(String nom) {
         this.nom = nom;
     }
@@ -71,9 +67,5 @@ public class Utilisateur {
 
     public void setCIN(String CIN) {
         this.CIN = CIN;
-    }
-
-    public void setVoiture(Voiture voiture) {
-        this.voiture = voiture;
     }
 }
