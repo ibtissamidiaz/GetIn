@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <item
+        android:id="@+id/monprofil"
+        android:icon="@drawable/ic_person"
+        android:title="@string/monprofil"
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/app_bar_search"
         android:icon="@drawable/ic_search_black_24dp"
-        android:title="Search"
+        android:title="search"
         app:showAsAction="ifRoom"
         app:actionViewClass="android.widget.SearchView" />
+
     <item
         android:id="@+id/mesannonces"
         android:title="@string/mes_annonces"

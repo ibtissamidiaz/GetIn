@@ -7,8 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.getin.R;
-import com.example.getin.controller.covoiture.AnnonceCovoitureForm;
+import com.example.getin.controller.covoiture.ConsulterCovoiture;
 import com.example.getin.controller.covoitureur.AnnonceCovoitureurForm;
+import com.example.getin.controller.covoitureur.ConsulterCovoitureur;
+import com.example.getin.model.AnnonceCovoitureur;
 
 public class ChooseAct extends AppCompatActivity {
 
@@ -18,13 +20,13 @@ public class ChooseAct extends AppCompatActivity {
         setContentView(R.layout.activity_choose);
     }
 
-    public void goToAjouterAnnonceCovoitureur(View v){
-        startActivity(new Intent(this, AnnonceCovoitureurForm.class));
-    }
-
-    public void goToAjouterAnnonceCovoiture(View v){
-        startActivity(new Intent(this, AnnonceCovoitureForm.class));
+    public void goToAnnonceCovoitureur(View v){
+        startActivity(new Intent(this, ConsulterCovoitureur.class));
     }
 
 
+    public void goTOAnnonceCovoiture(View view) {
+        startActivity(new Intent(this, ConsulterCovoiture.class));
+
+    }
 }

@@ -13,6 +13,12 @@ public class Annonce implements Serializable {
 
     public Annonce() {}
 
+    public Annonce(String heure_depart, String heure_arrivee, String point_depart, String point_arrivee) {
+        this.heure_depart = heure_depart;
+        this.heure_arrivee = heure_arrivee;
+        this.point_depart = point_depart;
+        this.point_arrivee = point_arrivee;
+    }
 
     public Annonce(String heure_depart, String heure_arrivee, String point_depart, String point_arrivee, String description, long utilisateur_id) {
         this.heure_depart = heure_depart;
