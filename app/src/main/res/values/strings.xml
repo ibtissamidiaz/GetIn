@@ -18,4 +18,18 @@
     <string name="deconnecter">Se déconnecter</string>
     <string name="voiture_associee">Info de voiture</string>
     <string name="suivant">Suivant</string>
+    <string name="choisir">Choisir</string>
+    <string name="annonces_covoitureur">Annonce Covoitureur</string>
+    <string name="annonces_covoiture">Annonces Covoituré</string>
+    <string name="detail_covoitureur">Détail Annonce</string>
+    <string name="dateDepart">Date de départ</string>
+    <string name="PtDepart">Point de départ</string>
+    <string name="HrArrive">Date Arrivé</string>
+    <string name="ptArrive">Point d\'arrivé</string>
+    <string name="nbPlaces">Nombre de places</string>
+    <string name="nombre_de_places_voiture">Nombre de places</string>
+    <string name="prixAnnonce">Prix</string>
+    <string name="detail_voiture">Détail voiture</string>
+    <string name="Demander">Demander</string>
+    <string name="monprofil">Mon Profil</string>
 </resources>

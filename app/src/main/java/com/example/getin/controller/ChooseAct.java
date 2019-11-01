@@ -21,11 +21,18 @@ public class ChooseAct extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose);
 
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         //ajoute les entrées de menu_test à l'ActionBar
         getMenuInflater().inflate(R.menu.drop_down_menu, menu);
+        MenuItem mesannonces=menu.findItem(R.id.mesannonces);
+        mesannonces.setVisible(false);
+        MenuItem mesdemandes=menu.findItem(R.id.mesdemandes);
+        mesdemandes.setVisible(false);
+        MenuItem searchItem =menu.findItem(R.id.app_bar_search);
+        searchItem.setVisible(false);
         return true;
     }
     //gère le click sur une action de l'ActionBar
