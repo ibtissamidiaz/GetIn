@@ -64,7 +64,7 @@ public class AnnonceCovoitureAdapter extends BaseAdapter implements Filterable {
         ViewHolderCovoiture holder;
         if(convertView==null){
             holder = new ViewHolderCovoiture();
-            convertView = inflater.inflate(R.layout.annonce_covoiture_item,parent);
+            convertView = inflater.inflate(R.layout.annonce_covoiture_item,null);
             holder.ptdepart=convertView.findViewById(R.id.ptdepartcovoitureur);
             holder.ptarrive=convertView.findViewById(R.id.ptarrivecovoitureur);
             holder.hrdepart=convertView.findViewById(R.id.heuredepartcovoitureur);
