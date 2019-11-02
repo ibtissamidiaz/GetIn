@@ -48,12 +48,16 @@ public class ChooseAct extends AppCompatActivity {
     }
 
     public void goToAnnonceCovoitureur(View v){
-        startActivity(new Intent(this, ConsulterCovoitureur.class));
+        Intent i=new Intent(this,ConsulterCovoitureur.class);
+        i.putExtra("action","consultation");
+        startActivity(i);
     }
 
 
     public void goTOAnnonceCovoiture(View view) {
-        startActivity(new Intent(this, ConsulterCovoiture.class));
+        Intent i=new Intent(this,ConsulterCovoiture.class);
+        i.putExtra("action","consultation");
+        startActivity(i);
 
     }
 }

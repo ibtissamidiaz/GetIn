@@ -22,6 +22,7 @@ import com.example.getin.model.AnnonceCovoitureur;
 public class DetailAnnonceCovoiture extends AppCompatActivity {
 
     TextView hrDepart,hrArrive,ptDepart,ptArrive,placeDispo,description;
+    Button modifier,supprimer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +37,8 @@ public class DetailAnnonceCovoiture extends AppCompatActivity {
         ptArrive=findViewById(R.id.detail_ptArr_covoiture);
         placeDispo=findViewById(R.id.detail_place_covoiture);
         description=findViewById(R.id.detail_desc_covoiture);
+        modifier=findViewById(R.id.modifier);
+        supprimer=findViewById(R.id.supprimer);
 
         //remplir les champs
         hrDepart.setText( an.getHeure_depart());
@@ -44,6 +47,27 @@ public class DetailAnnonceCovoiture extends AppCompatActivity {
         ptArrive.setText(an.getPoint_arrivee());
         placeDispo.setText(""+an.getNbr_personnes());
         description.setText( an.getDescription());
+        String action=this.getIntent().getStringExtra("action");
+        if (action != null) {
+            if (action.equals("consultation")) {
+                modifier.setVisibility(View.INVISIBLE);
+                supprimer.setVisibility(View.INVISIBLE);
+            }
+        }
+
+        modifier.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //modification annonce covoituré
+            }
+        });
+
+        supprimer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //suppression annonce covoituré
+            }
+        });
     }
 
     // le menu

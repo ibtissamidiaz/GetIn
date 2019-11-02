@@ -1,5 +1,6 @@
 package com.example.getin.controller.covoiture;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -74,7 +75,7 @@ public class AnnonceCovoitureurAdapter extends BaseAdapter implements Filterable
            convertView.setTag(holder);
        }
        else {
-           holder = (ViewHolder) convertView.getTag();
+          holder = (ViewHolder) convertView.getTag();
        }
        holder.ptdepart.setText("De : "+annonceCovoitureurs.get(position).getPoint_depart());
        holder.ptarrive.setText("A : "+annonceCovoitureurs.get(position).getPoint_arrivee());
@@ -87,6 +88,9 @@ public class AnnonceCovoitureurAdapter extends BaseAdapter implements Filterable
            public void onClick(View v) {
                    //pour voir plus de details
                Intent i=new Intent(mContext,DetailAnnonceCovoitureur.class);
+               Intent intent=((Activity) mContext).getIntent();
+               String s=intent.getStringExtra("action");
+               i.putExtra("action",s);
                Bundle b = new Bundle();
                b.putSerializable("annonce",annonceCovoitureurs.get(position));
                i.putExtras(b);

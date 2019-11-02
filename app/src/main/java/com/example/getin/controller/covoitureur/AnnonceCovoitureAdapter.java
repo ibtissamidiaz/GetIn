@@ -1,5 +1,6 @@
 package com.example.getin.controller.covoitureur;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -87,6 +88,9 @@ public class AnnonceCovoitureAdapter extends BaseAdapter implements Filterable {
             public void onClick(View v) {
                 //pour voir plus de details
                 Intent i=new Intent(mContext, DetailAnnonceCovoiture.class);
+                Intent intent=((Activity) mContext).getIntent();
+                String s=intent.getStringExtra("action");
+                i.putExtra("action",s);
                 Bundle b = new Bundle();
                 b.putSerializable("annonce", annonceCovoitures.get(position));
                 i.putExtras(b);

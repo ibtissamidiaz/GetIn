@@ -20,6 +20,7 @@ import com.example.getin.model.AnnonceCovoitureur;
 public class DetailAnnonceCovoitureur extends AppCompatActivity {
     TextView hrDepart,hrArrive,ptDepart,ptArrive,placeDispo,prix,description,nomVoiture,immatricule,nbPlaces;
     Button demmander;
+    Button modifier,supprimer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +40,8 @@ public class DetailAnnonceCovoitureur extends AppCompatActivity {
         immatricule=findViewById(R.id.detail_matV_covoitureur);
         nbPlaces=findViewById(R.id.detail_nbPlace_covoitureur);
         demmander=findViewById(R.id.demandeCovoiture);
+        modifier=findViewById(R.id.modifierAnnonceCovoitureur);
+        supprimer=findViewById(R.id.SupprimerCovoitureur);
 
         //remplir les champs
 
@@ -56,7 +59,6 @@ public class DetailAnnonceCovoitureur extends AppCompatActivity {
         immatricule.setText(an.getVoiture().getNum_immatriculation());
         nbPlaces.setText(an.getVoiture().getNbr_places() +" places");
 
-
         //Action sur la demande
         demmander.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,7 +66,35 @@ public class DetailAnnonceCovoitureur extends AppCompatActivity {
                 //ici le code du demande de covoiturage
             }
         });
+
+        String action=this.getIntent().getStringExtra("action");
+        if (action != null) {
+            if (action.equals("consultation")) {
+                modifier.setVisibility(View.INVISIBLE);
+                supprimer.setVisibility(View.INVISIBLE);
+            }
+        }
+        else{
+            demmander.setVisibility(View.INVISIBLE);
+
+        }
+
+
+        modifier.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //modification annonce covoitureur
+            }
+        });
+
+        supprimer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //suppression annonce covoitureur
+            }
+        });
     }
+
 
     // le menu
     @Override

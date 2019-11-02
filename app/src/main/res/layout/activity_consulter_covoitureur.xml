@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:fillViewport="true">
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -6,7 +11,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:backgroundTint="#e1e8ec"
-    tools:context=".controller.covoiture.ConsulterCovoiture">
+    tools:context=".controller.covoitureur.ConsulterCovoitureur">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -41,3 +46,4 @@
         />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
+</ScrollView>

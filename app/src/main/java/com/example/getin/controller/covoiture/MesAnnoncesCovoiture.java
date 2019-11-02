@@ -8,17 +8,58 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ListView;
 
 import com.example.getin.R;
+import com.example.getin.controller.covoitureur.AnnonceCovoitureAdapter;
+import com.example.getin.model.AnnonceCovoiture;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class MesAnnoncesCovoiture extends AppCompatActivity {
+
+    ListView listAnnoncesCovoiture;
+    FirebaseDatabase data;
+    DatabaseReference ref;
+    ArrayList<AnnonceCovoiture> annonces = new ArrayList<>();
+    AnnonceCovoitureAdapter adapter;
+    FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mes_annonces_covoiture);
-    }
 
+        //la liste des annonce covoiturés
+        listAnnoncesCovoiture = findViewById(R.id.mes_annonce_covoiture);
+        adapter = new AnnonceCovoitureAdapter(this, annonces);
+        user=FirebaseAuth.getInstance().getCurrentUser();
+        String uid= user.getUid();
+        data=FirebaseDatabase.getInstance();
+        ref=data.getReference("AnnonceCovoiture");
+        Query q=ref.orderByChild("utilisateur_id").equalTo(uid);
+        q.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    AnnonceCovoiture annonce;
+                    annonce = ds.getValue(AnnonceCovoiture.class);
+                    annonces.add(annonce);
+                    listAnnoncesCovoiture.setAdapter(adapter);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) { }
+        });
+    }
     // le menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -46,6 +87,5 @@ public class MesAnnoncesCovoiture extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 
 }

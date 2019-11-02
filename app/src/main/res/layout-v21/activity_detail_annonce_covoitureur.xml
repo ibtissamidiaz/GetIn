@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:fillViewport="true">
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:backgroundTint="#e1e8ec"
     tools:context=".controller.covoiture.DetailAnnonceCovoitureur">
 
@@ -12,7 +16,7 @@
         android:id="@+id/title_detail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/rainball_font"
         android:gravity="center"
         android:text="@string/detail_covoitureur"
@@ -28,8 +32,6 @@
         android:layout_width="374dp"
         android:layout_height="623dp"
         android:orientation="vertical"
-        android:layout_margin="200dp"
-        android:layout_marginTop="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -266,18 +268,52 @@
                 android:gravity="center"
                 />
 
-            <Button
-                android:id="@+id/demandeCovoiture"
-                android:layout_width="254dp"
-                android:layout_height="11dp"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/annonce_item_style"
-                android:backgroundTint="@color/colorPrimary"
-                android:gravity="center"
-                android:text="@string/Demander"
-                android:textColor="@color/colorAccent" />
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/modifierAnnonceCovoitureur"
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="12dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/annonce_item_style"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:gravity="center"
+                    android:text="@string/modifier"
+                    android:textColor="@color/colorAccent" />
+
+                <Button
+                    android:id="@+id/demandeCovoiture"
+                    android:layout_width="128dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="12dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/annonce_item_style"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:gravity="center"
+                    android:text="@string/Demander"
+                    android:textColor="@color/colorAccent" />
+
+                <Button
+                    android:id="@+id/SupprimerCovoitureur"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Supprimer"
+                    android:background="@drawable/annonce_item_style"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textColor="@color/colorAccent"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
         </LinearLayout>
     </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

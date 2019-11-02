@@ -32,4 +32,8 @@
     <string name="detail_voiture">Détail voiture</string>
     <string name="Demander">Demander</string>
     <string name="monprofil">Mon Profil</string>
+    <string name="modifier">Modifier</string>
+    <string name="Supprimer">Supprimer</string>
+    <string name="mes_annonces_covoiture">Mes annonces covoituré</string>
+    <string name="mes_annonces_covoitureur">Mes annonces covoitureur</string>
 </resources>

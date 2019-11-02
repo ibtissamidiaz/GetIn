@@ -1,43 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<ScrollView
+    android:layout_height="fill_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:fillViewport="true">
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:backgroundTint="#e1e8ec"
+tools:context=".controller.covoiture.ConsulterCovoiture">
+<RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:backgroundTint="#e1e8ec"
-    tools:context=".controller.covoiture.ConsulterCovoiture">
-    <RelativeLayout
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/annonces_covoitureur"
-            android:fontFamily="@font/rainball_font"
-            android:textColor="#4C5175"
-            android:textSize="35sp"
-            android:gravity="center"
-            android:layout_margin="16dp"/>
-
-        <ListView
-            android:id="@+id/liste_annonce_covoiture"
-            android:layout_width="360dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_below="@+id/title" />
-    </RelativeLayout>
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_annonce_covoiture"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        android:layout_margin="16dp"
-        android:src="@drawable/ic_add_without_cycle"
-        app:fabSize="normal"
-        app:elevation="16dp"
-        app:backgroundTint="@color/grey"
-         />
+        android:text="@string/annonces_covoitureur"
+        android:fontFamily="@font/rainball_font"
+        android:textColor="#4C5175"
+        android:textSize="35sp"
+        android:gravity="center"
+        android:layout_margin="16dp"/>
+
+    <ListView
+        android:id="@+id/liste_annonce_covoiture"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_below="@+id/title" />
+</RelativeLayout>
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/add_annonce_covoiture"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="end|bottom"
+    android:layout_margin="16dp"
+    android:src="@drawable/ic_add_without_cycle"
+    app:fabSize="normal"
+    app:elevation="16dp"
+    app:backgroundTint="@color/grey"
+    />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
+</ScrollView>
