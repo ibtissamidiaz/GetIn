@@ -14,6 +14,8 @@ import com.example.getin.R;
 import com.example.getin.controller.MainActivity;
 import com.example.getin.model.AnnonceCovoitureur;
 import com.example.getin.model.Voiture;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,8 +31,6 @@ public class InfoVoiture extends AppCompatActivity {
     AnnonceCovoitureur annonceCovoitureur;
     Voiture voiture;
 
-    long maxId=0;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,21 +40,7 @@ public class InfoVoiture extends AppCompatActivity {
         nbr_places2 = findViewById(R.id.ed_nbr_places2);
         ajout = findViewById(R.id.ajouter_annonce);
 
-
         ref = FirebaseDatabase.getInstance().getReference().child("AnnonceCovoitureur");
-        ref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    maxId = (dataSnapshot.getChildrenCount());
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
 
         ajout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,14 +69,42 @@ public class InfoVoiture extends AppCompatActivity {
 
                                 if(annonceCovoitureur != null) annonceCovoitureur.setVoiture(voiture);
 
-                                ref.child(String.valueOf(maxId + 1)).setValue(annonceCovoitureur);
+                                String genId = getAlphaNumericString(5);
+
+                                ref.child(genId).setValue(annonceCovoitureur);
                                 Toast.makeText(InfoVoiture.this, "Annonce ajouté !", Toast.LENGTH_LONG).show();
-                                startActivity(new Intent(InfoVoiture.this, MainActivity.class));
+                                startActivity(new Intent(InfoVoiture.this, MesAnnoncesCovoitureur.class));
                             }
                         }
                     }
                 }
             }
         });
+    }
+
+    static String getAlphaNumericString(int n)
+    {
+        // chose a Character random from this String
+        String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                + "0123456789"
+                + "abcdefghijklmnopqrstuvxyz";
+
+        // create StringBuffer size of AlphaNumericString
+        StringBuilder sb = new StringBuilder(n);
+
+        for (int i = 0; i < n; i++) {
+
+            // generate a random number between
+            // 0 to AlphaNumericString variable length
+            int index
+                    = (int)(AlphaNumericString.length()
+                    * Math.random());
+
+            // add Character one by one in end of sb
+            sb.append(AlphaNumericString
+                    .charAt(index));
+        }
+
+        return sb.toString();
     }
 }

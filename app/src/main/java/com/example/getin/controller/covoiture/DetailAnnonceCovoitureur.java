@@ -1,8 +1,10 @@
 package com.example.getin.controller.covoiture;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,21 +14,28 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.getin.R;
+import com.example.getin.controller.covoitureur.DetailAnnonceCovoiture;
+import com.example.getin.controller.covoitureur.MesAnnoncesCovoitureur;
 import com.example.getin.model.AnnonceCovoiture;
 import com.example.getin.model.AnnonceCovoitureur;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class DetailAnnonceCovoitureur extends AppCompatActivity {
     TextView hrDepart,hrArrive,ptDepart,ptArrive,placeDispo,prix,description,nomVoiture,immatricule,nbPlaces;
     Button demmander;
     Button modifier,supprimer;
+    String id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_annonce_covoitureur);
         Bundle b=this.getIntent().getExtras();
         AnnonceCovoitureur an= (AnnonceCovoitureur) b.getSerializable("annonce");
+        id = an.getId_annonce();
 
         // recuperation des textView
         hrDepart=findViewById(R.id.detail_hrDep_covoitureur);
@@ -41,7 +50,7 @@ public class DetailAnnonceCovoitureur extends AppCompatActivity {
         nbPlaces=findViewById(R.id.detail_nbPlace_covoitureur);
         demmander=findViewById(R.id.demandeCovoiture);
         modifier=findViewById(R.id.modifierAnnonceCovoitureur);
-        supprimer=findViewById(R.id.SupprimerCovoitureur);
+        supprimer=findViewById(R.id.SupprimerAnnonceCovoitureur);
 
         //remplir les champs
 
@@ -90,7 +99,25 @@ public class DetailAnnonceCovoitureur extends AppCompatActivity {
         supprimer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //suppression annonce covoitureur
+                AlertDialog.Builder buildDialog = new AlertDialog.Builder(DetailAnnonceCovoitureur.this);
+                buildDialog.setTitle("Confirmation");
+                buildDialog.setMessage("Etes-vous sûr de vouloir supprimer l'annonce ?");
+                buildDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        DatabaseReference dR = FirebaseDatabase.getInstance().getReference("AnnonceCovoitureur").child(id);
+                        dR.removeValue();
+                        Toast.makeText(DetailAnnonceCovoitureur.this,"Annonce supprimée",Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(DetailAnnonceCovoitureur.this, MesAnnoncesCovoitureur.class));
+                    }
+                });
+                buildDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                buildDialog.show();
             }
         });
     }
@@ -126,4 +153,5 @@ public class DetailAnnonceCovoitureur extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

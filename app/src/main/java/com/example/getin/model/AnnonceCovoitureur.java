@@ -8,14 +8,14 @@ public class AnnonceCovoitureur extends Annonce implements Serializable {
     private Voiture voiture;
     private double prix;
 
-    public AnnonceCovoitureur(String heure_depart, String heure_arrivee, String point_depart, String point_arrivee, String description, long utilisateur_id, int nbr_personnes, double prix, Voiture voiture) {
+    public AnnonceCovoitureur(String heure_depart, String heure_arrivee, String point_depart, String point_arrivee, String description, String utilisateur_id, int nbr_personnes, double prix, Voiture voiture) {
         super(heure_depart, heure_arrivee, point_depart, point_arrivee, description, utilisateur_id);
         this.nbr_personnes = nbr_personnes;
         this.prix = prix;
         this.voiture = voiture;
     }
 
-    public AnnonceCovoitureur(String heure_depart, String heure_arrivee, String point_depart, String point_arrivee, String description, long utilisateur_id, int nbr_personnes, double prix) {
+    public AnnonceCovoitureur(String heure_depart, String heure_arrivee, String point_depart, String point_arrivee, String description, String utilisateur_id, int nbr_personnes, double prix) {
         super(heure_depart, heure_arrivee, point_depart, point_arrivee, description, utilisateur_id);
         this.nbr_personnes = nbr_personnes;
         this.prix = prix;

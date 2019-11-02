@@ -3,12 +3,14 @@ package com.example.getin.model;
 import java.io.Serializable;
 
 public class Annonce implements Serializable {
+
+    private String id_annonce;
     private String heure_depart;
     private String heure_arrivee;
     private String point_depart;
     private String point_arrivee;
     private String description;
-    private long utilisateur_id;
+    private String utilisateur_id;
 
 
     public Annonce() {}
@@ -20,7 +22,7 @@ public class Annonce implements Serializable {
         this.point_arrivee = point_arrivee;
     }
 
-    public Annonce(String heure_depart, String heure_arrivee, String point_depart, String point_arrivee, String description, long utilisateur_id) {
+    public Annonce(String heure_depart, String heure_arrivee, String point_depart, String point_arrivee, String description, String utilisateur_id) {
         this.heure_depart = heure_depart;
         this.heure_arrivee = heure_arrivee;
         this.point_depart = point_depart;
@@ -49,8 +51,12 @@ public class Annonce implements Serializable {
         return description;
     }
 
-    public long getUtilisateur_id() {
+    public String getUtilisateur_id() {
         return utilisateur_id;
+    }
+
+    public String getId_annonce() {
+        return id_annonce;
     }
 
     public void setHeure_depart(String heure_depart) {
@@ -73,7 +79,11 @@ public class Annonce implements Serializable {
         this.description = description;
     }
 
-    public void setUtilisateur_id(long utilisateur_id) {
+    public void setUtilisateur_id(String utilisateur_id) {
         this.utilisateur_id = utilisateur_id;
+    }
+
+    public void setId_annonce(String id_annonce) {
+        this.id_annonce = id_annonce;
     }
 }

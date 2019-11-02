@@ -17,6 +17,8 @@ import android.widget.Toast;
 import com.example.getin.R;
 import com.example.getin.controller.MainActivity;
 import com.example.getin.model.AnnonceCovoiture;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,9 +35,14 @@ public class AnnonceCovoitureForm extends AppCompatActivity {
     DatabaseReference ref;
     AnnonceCovoiture annonceCovoiture;
 
+    FirebaseAuth mFirebaseAuth = FirebaseAuth.getInstance();
+    FirebaseUser user= mFirebaseAuth.getCurrentUser();
+    String uid;
+
+
     int year,month,day,hour,minute;
     String hr;
-    long maxid=0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,21 +60,12 @@ public class AnnonceCovoitureForm extends AppCompatActivity {
         ch2 = findViewById(R.id.bt_tps_arr1);
         ajouter = findViewById(R.id.button_ajouter);
 
+        if(user != null)
+           uid = user.getUid();
+        else
+            uid = "1";
 
         ref = FirebaseDatabase.getInstance().getReference().child("AnnonceCovoiture");
-        ref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists()){
-                    maxid=(dataSnapshot.getChildrenCount());
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
 
         View.OnClickListener showDateTimePicker = new View.OnClickListener() {
             @Override
@@ -130,14 +128,42 @@ public class AnnonceCovoitureForm extends AppCompatActivity {
                     else {
                         int nbr_pers = Integer.parseInt(nper);
 
-                        annonceCovoiture = new AnnonceCovoiture(heure_dep,heure_arr,point_dep,point_arr,desc,1,nbr_pers);
+                        annonceCovoiture = new AnnonceCovoiture(heure_dep,heure_arr,point_dep,point_arr,desc,uid,nbr_pers);
 
-                        ref.child(String.valueOf(maxid+1)).setValue(annonceCovoiture);
+                        String genId = getAlphaNumericString(5);
+
+                        ref.child(genId).setValue(annonceCovoiture);
                         Toast.makeText(AnnonceCovoitureForm.this,"Annonce ajouté !",Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(AnnonceCovoitureForm.this, MainActivity.class));
+                        startActivity(new Intent(AnnonceCovoitureForm.this, MesAnnoncesCovoiture.class));
                     }
                 }
             }
         });
+    }
+
+    static String getAlphaNumericString(int n)
+    {
+        // chose a Character random from this String
+        String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                + "0123456789"
+                + "abcdefghijklmnopqrstuvxyz";
+
+        // create StringBuffer size of AlphaNumericString
+        StringBuilder sb = new StringBuilder(n);
+
+        for (int i = 0; i < n; i++) {
+
+            // generate a random number between
+            // 0 to AlphaNumericString variable length
+            int index
+                    = (int)(AlphaNumericString.length()
+                    * Math.random());
+
+            // add Character one by one in end of sb
+            sb.append(AlphaNumericString
+                    .charAt(index));
+        }
+
+        return sb.toString();
     }
 }

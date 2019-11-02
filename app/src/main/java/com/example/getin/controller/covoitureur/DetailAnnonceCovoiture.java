@@ -1,8 +1,10 @@
 package com.example.getin.controller.covoitureur;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,23 +14,29 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.getin.R;
+import com.example.getin.controller.covoiture.DetailAnnonceCovoitureur;
 import com.example.getin.controller.covoiture.MesAnnoncesCovoiture;
 import com.example.getin.controller.covoiture.MesDemmandesCovoiture;
 import com.example.getin.model.AnnonceCovoiture;
 import com.example.getin.model.AnnonceCovoitureur;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class DetailAnnonceCovoiture extends AppCompatActivity {
 
     TextView hrDepart,hrArrive,ptDepart,ptArrive,placeDispo,description;
     Button modifier,supprimer;
+    String id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_annonce_covoiture);
         Bundle b=this.getIntent().getExtras();
         AnnonceCovoiture an= (AnnonceCovoiture) b.getSerializable("annonce");
+        id = an.getId_annonce();
 
         // recuperation des textView
         hrDepart=findViewById(R.id.detail_hrDep_covoiture);
@@ -65,7 +73,25 @@ public class DetailAnnonceCovoiture extends AppCompatActivity {
         supprimer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //suppression annonce covoituré
+                AlertDialog.Builder buildDialog = new AlertDialog.Builder(DetailAnnonceCovoiture.this);
+                buildDialog.setTitle("Confirmation");
+                buildDialog.setMessage("Etes-vous sûr de vouloir supprimer l'annonce ?");
+                buildDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        DatabaseReference dR = FirebaseDatabase.getInstance().getReference("AnnonceCovoiture").child(id);
+                        dR.removeValue();
+                        Toast.makeText(DetailAnnonceCovoiture.this,"Annonce supprimée",Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(DetailAnnonceCovoiture.this, MesAnnoncesCovoiture.class));
+                    }
+                });
+                buildDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                buildDialog.show();
             }
         });
     }

@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 import com.example.getin.R;
 import com.example.getin.model.AnnonceCovoitureur;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Calendar;
 
@@ -26,6 +28,10 @@ public class AnnonceCovoitureurForm extends AppCompatActivity {
 
     int year,month,day,hour,minute;
     String hr;
+
+    FirebaseAuth mFirebaseAuth = FirebaseAuth.getInstance();
+    FirebaseUser user= mFirebaseAuth.getCurrentUser();
+    String uid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +49,11 @@ public class AnnonceCovoitureurForm extends AppCompatActivity {
         pick_dep = findViewById(R.id.bt_tps_dep);
         pick_arr = findViewById(R.id.bt_tps_arr);
         suivant = findViewById(R.id.button_suivant);
+
+        if(user != null)
+            uid = user.getUid();
+        else
+            uid = "1";
 
         View.OnClickListener showDateTimePicker = new View.OnClickListener() {
             @Override
@@ -109,7 +120,7 @@ public class AnnonceCovoitureurForm extends AppCompatActivity {
                             int nbr_pl = Integer.parseInt(np);
                             double pri = Double.parseDouble(pr);
 
-                            annonceCovoitureur = new AnnonceCovoitureur(heure_dep,heure_arr,point_dep,point_arr,desc,1,nbr_pl,pri);
+                            annonceCovoitureur = new AnnonceCovoitureur(heure_dep,heure_arr,point_dep,point_arr,desc,uid,nbr_pl,pri);
 
 
                             Intent intent = new Intent(AnnonceCovoitureurForm.this, InfoVoiture.class);

@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String email=emailField.getText().toString();
+                String email=emailField.getText().toString().trim();
                 String pwd = mdpField.getText().toString();
                 if(email.isEmpty()){
                     emailField.setError("Please enter email id");

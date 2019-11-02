@@ -52,6 +52,7 @@ public class MesAnnoncesCovoiture extends AppCompatActivity {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     AnnonceCovoiture annonce;
                     annonce = ds.getValue(AnnonceCovoiture.class);
+                    if(annonce != null) annonce.setId_annonce(ds.getKey());
                     annonces.add(annonce);
                     listAnnoncesCovoiture.setAdapter(adapter);
                 }
