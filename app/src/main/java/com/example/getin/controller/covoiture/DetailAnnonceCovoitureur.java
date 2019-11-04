@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.example.getin.R;
 import com.example.getin.controller.covoitureur.DetailAnnonceCovoiture;
 import com.example.getin.controller.covoitureur.MesAnnoncesCovoitureur;
+import com.example.getin.controller.covoitureur.ModiferAnnonceCovoitureur;
 import com.example.getin.model.AnnonceCovoiture;
 import com.example.getin.model.AnnonceCovoitureur;
 import com.google.firebase.database.DatabaseReference;
@@ -34,7 +35,7 @@ public class DetailAnnonceCovoitureur extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_annonce_covoitureur);
         Bundle b=this.getIntent().getExtras();
-        AnnonceCovoitureur an= (AnnonceCovoitureur) b.getSerializable("annonce");
+        final AnnonceCovoitureur an= (AnnonceCovoitureur) b.getSerializable("annonce");
         id = an.getId_annonce();
 
         // recuperation des textView
@@ -92,7 +93,9 @@ public class DetailAnnonceCovoitureur extends AppCompatActivity {
         modifier.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //modification annonce covoitureur
+                Intent intent = new Intent(DetailAnnonceCovoitureur.this, ModiferAnnonceCovoitureur.class);
+                intent.putExtra("annonce",an);
+                startActivity(intent);
             }
         });
 

@@ -46,14 +46,12 @@ public class AnnonceCovoitureurForm extends AppCompatActivity {
         nbr_places = findViewById(R.id.ed_nbr_places1);
         prix = findViewById(R.id.ed_prix1);
         description = findViewById(R.id.ed_description1);
-        pick_dep = findViewById(R.id.bt_tps_dep);
-        pick_arr = findViewById(R.id.bt_tps_arr);
-        suivant = findViewById(R.id.button_suivant);
+        pick_dep = findViewById(R.id.bt_tps_dep1);
+        pick_arr = findViewById(R.id.bt_tps_arr1);
+        suivant = findViewById(R.id.button_suivant1);
 
         if(user != null)
             uid = user.getUid();
-        else
-            uid = "1";
 
         View.OnClickListener showDateTimePicker = new View.OnClickListener() {
             @Override
@@ -82,7 +80,7 @@ public class AnnonceCovoitureurForm extends AppCompatActivity {
                                      else
                                          hr += hourOfDay+"h"+minute;
 
-                                     if (vv.getId() == R.id.bt_tps_dep )
+                                     if (vv.getId() == R.id.bt_tps_dep_m)
                                          heure_depart.setText(hr);
                                      else
                                          heure_arrivee.setText(hr);
@@ -111,7 +109,7 @@ public class AnnonceCovoitureurForm extends AppCompatActivity {
                 if (point_dep.matches("") || point_arr.matches("") || heure_dep.matches("") || heure_arr.matches("") || np.matches("") || pr.matches(""))
                     Toast.makeText(AnnonceCovoitureurForm.this, "Veulliez remplir les champs obligatoires", Toast.LENGTH_SHORT).show();
                 else{
-                    if(! pr.matches("^(1000|[1-9][0-9]{0,2})$"))
+                    if(! pr.matches("^(\\d*\\.?\\d*)$"))
                         Toast.makeText(AnnonceCovoitureurForm.this, "Prix invalide", Toast.LENGTH_SHORT).show();
                     else{
                         if(! np.matches("^(10|[0-9])$"))

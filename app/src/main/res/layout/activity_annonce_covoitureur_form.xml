@@ -115,12 +115,14 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_temps_arrivee1" />
 
         <Button
-            android:id="@+id/bt_tps_arr"
+            android:id="@+id/bt_tps_arr1"
             android:layout_width="108dp"
             android:layout_height="41dp"
             android:background="@drawable/annonce_item_style"
             android:backgroundTint="@color/colorAccent"
             android:text="@string/choisir"
+            android:drawableLeft="@drawable/ic_time"
+            android:textColor="#4c5175"
             app:layout_constraintBottom_toTopOf="@+id/ed_temps_arrivee1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.729"
@@ -141,12 +143,14 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/bt_tps_dep"
+            android:id="@+id/bt_tps_dep1"
             android:layout_width="109dp"
             android:layout_height="39dp"
             android:background="@drawable/annonce_item_style"
             android:backgroundTint="@color/colorAccent"
             android:text="@string/choisir"
+            android:drawableLeft="@drawable/ic_time"
+            android:textColor="#4c5175"
             app:layout_constraintBottom_toTopOf="@+id/ed_temps_depart1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.092"
@@ -233,7 +237,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_description1" />
 
         <Button
-            android:id="@+id/button_suivant"
+            android:id="@+id/button_suivant1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"

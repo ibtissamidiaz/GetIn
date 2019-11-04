@@ -53,7 +53,7 @@ public class InfoVoiture extends AppCompatActivity {
                 if (num_im.matches("") || n_voiture.matches("") || np2.matches(""))
                     Toast.makeText(InfoVoiture.this, "Veulliez remplir les champs obligatoires", Toast.LENGTH_SHORT).show();
                 else{
-                    if(! num_im.matches("^([0-9]{5})-(\\w)-([0-9]{1,2}$)"))
+                    if(! num_im.matches("^([0-9]{4,6})-(\\w)-([0-9]{1,2}$)"))
                         Toast.makeText(InfoVoiture.this, "Numero d'immatriculation incorrect", Toast.LENGTH_SHORT).show();
                     else{
                         if(! np2.matches("^(10|[0-9])$") )
@@ -72,7 +72,7 @@ public class InfoVoiture extends AppCompatActivity {
                                 String genId = getAlphaNumericString(5);
 
                                 ref.child(genId).setValue(annonceCovoitureur);
-                                Toast.makeText(InfoVoiture.this, "Annonce ajouté !", Toast.LENGTH_LONG).show();
+                                Toast.makeText(InfoVoiture.this, "Annonce ajoutée !", Toast.LENGTH_LONG).show();
                                 startActivity(new Intent(InfoVoiture.this, MesAnnoncesCovoitureur.class));
                             }
                         }

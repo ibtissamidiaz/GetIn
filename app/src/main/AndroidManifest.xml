@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".controller.covoitureur.MesAnnoncesCovoitureur"></activity>
+        <activity android:name=".controller.covoiture.ModifierAnnonceCovoiture"></activity>
+        <activity android:name=".controller.covoitureur.ModifierVoiture" />
+        <activity android:name=".controller.covoitureur.ModiferAnnonceCovoitureur" />
+        <activity android:name=".controller.covoitureur.MesAnnoncesCovoitureur" />
         <activity android:name=".controller.covoitureur.DetailAnnonceCovoiture" />
         <activity android:name=".controller.covoiture.DetailAnnonceCovoitureur" />
         <activity android:name=".controller.covoiture.MesDemmandesCovoiture" />

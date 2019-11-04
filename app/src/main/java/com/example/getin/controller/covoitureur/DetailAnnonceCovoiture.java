@@ -20,6 +20,7 @@ import com.example.getin.R;
 import com.example.getin.controller.covoiture.DetailAnnonceCovoitureur;
 import com.example.getin.controller.covoiture.MesAnnoncesCovoiture;
 import com.example.getin.controller.covoiture.MesDemmandesCovoiture;
+import com.example.getin.controller.covoiture.ModifierAnnonceCovoiture;
 import com.example.getin.model.AnnonceCovoiture;
 import com.example.getin.model.AnnonceCovoitureur;
 import com.google.firebase.database.DatabaseReference;
@@ -35,7 +36,7 @@ public class DetailAnnonceCovoiture extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_annonce_covoiture);
         Bundle b=this.getIntent().getExtras();
-        AnnonceCovoiture an= (AnnonceCovoiture) b.getSerializable("annonce");
+        final AnnonceCovoiture an= (AnnonceCovoiture) b.getSerializable("annonce");
         id = an.getId_annonce();
 
         // recuperation des textView
@@ -66,7 +67,9 @@ public class DetailAnnonceCovoiture extends AppCompatActivity {
         modifier.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //modification annonce covoituré
+                Intent intent = new Intent(DetailAnnonceCovoiture.this, ModifierAnnonceCovoiture.class);
+                intent.putExtra("annonceM",an);
+                startActivity(intent);
             }
         });
 
@@ -81,7 +84,7 @@ public class DetailAnnonceCovoiture extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         DatabaseReference dR = FirebaseDatabase.getInstance().getReference("AnnonceCovoiture").child(id);
                         dR.removeValue();
-                        Toast.makeText(DetailAnnonceCovoiture.this,"Annonce supprimée",Toast.LENGTH_LONG).show();
+                        Toast.makeText(DetailAnnonceCovoiture.this,"Annonce supprimée !",Toast.LENGTH_LONG).show();
                         startActivity(new Intent(DetailAnnonceCovoiture.this, MesAnnoncesCovoiture.class));
                     }
                 });

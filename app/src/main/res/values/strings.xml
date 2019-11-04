@@ -3,6 +3,7 @@
     <string name="log_in">Log In</string>
     <string name="continuer_autant_que">Continuer autant que ...</string>
     <string name="ajouter_annonce">Ajouter une annonce</string>
+    <string name="modifier_annonce">Modifier l\'annonce</string>
     <string name="covoitureur">Covoitureur</string>
     <string name="covoituré">Covoituré</string>
     <string name="point_de_depart">Point de départ</string>
@@ -10,7 +11,7 @@
     <string name="temps_de_depart">Temps de départ</string>
     <string name="temps_d_arrivee">Temps d\'arrivée</string>
     <string name="nombre_de_places_ndisponibles">Nombre de places\ndisponibles</string>
-    <string name="prix">Prix</string>
+    <string name="prix">Prix (MAD)</string>
     <string name="description">Description</string>
     <string name="nombre_de_personnes">Nombre de personnes</string>
     <string name="mes_annonces">Mes annonces</string>
@@ -28,7 +29,7 @@
     <string name="ptArrive">Point d\'arrivé</string>
     <string name="nbPlaces">Nombre de places</string>
     <string name="nombre_de_places_voiture">Nombre de places</string>
-    <string name="prixAnnonce">Prix</string>
+    <string name="prixAnnonce">Prix (MAD)</string>
     <string name="detail_voiture">Détail voiture</string>
     <string name="Demander">Demander</string>
     <string name="monprofil">Mon Profil</string>

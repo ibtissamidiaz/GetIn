@@ -1,312 +1,330 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="fill_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:fillViewport="true">
-<androidx.constraintlayout.widget.ConstraintLayout
+    android:background="#e1e8ec"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:backgroundTint="#e1e8ec"
-    tools:context=".controller.covoiture.DetailAnnonceCovoitureur">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/title_detail"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/rainball_font"
-        android:gravity="center"
-        android:text="@string/detail_covoitureur"
-        android:textColor="#4C5175"
-        android:textSize="35sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.01"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="25dp" />
-
-    <LinearLayout
-        android:layout_width="366dp"
-        android:layout_height="532dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_detail">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="41dp"
-            android:layout_marginBottom="40dp"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="175dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="188dp"
-                    android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/ic_clock"
-                    android:gravity="center"
-                    android:text="@string/dateDepart"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="@dimen/text_dim_detail"
-                    android:textStyle="italic" />
-
-                <TextView
-                    android:id="@+id/detail_hrDep_covoitureur"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/ic_depart"
-                    android:gravity="center"
-                    android:text="@string/PtDepart"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="@dimen/text_dim_detail"
-                    android:textStyle="italic" />
-
-                <TextView
-                    android:id="@+id/detail_ptDep_covoitureur"
-                    android:layout_width="198dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="54dp"
-            android:layout_marginBottom="40dp"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="175dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/ic_clock"
-                    android:gravity="center"
-                    android:text="@string/HrArrive"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="@dimen/text_dim_detail"
-                    android:textStyle="italic" />
-
-                <TextView
-                    android:id="@+id/detail_hrArr_covoitureur"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="198dp"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/ic_arrive"
-                    android:gravity="center"
-                    android:text="@string/ptArrive"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="@dimen/text_dim_detail"
-                    android:textStyle="italic" />
-
-                <TextView
-                    android:id="@+id/detail_ptArr_covoitureur"
-                    android:layout_width="198dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="54dp"
-            android:layout_marginBottom="40dp"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="176dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/ic_money"
-                    android:gravity="center"
-                    android:text="@string/prixAnnonce"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="@dimen/text_dim_detail"
-                    android:textStyle="italic" />
-
-                <TextView
-                    android:id="@+id/detail_prix_covoitureur"
-                    android:layout_width="match_parent"
-                    android:layout_height="31dp"
-                    android:gravity="center" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="199dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/ic_nbr_sup"
-                    android:gravity="center"
-                    android:text="@string/nbPlaces"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="@dimen/text_dim_detail"
-                    android:textStyle="italic" />
-
-                <TextView
-                    android:id="@+id/detail_placeDisp"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="91dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/description"
-                android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/text_dim_detail"
-                android:textStyle="italic" />
-
-            <TextView
-                android:id="@+id/detail_desc_covoitureur"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center" />
-
-        </LinearLayout>
+        android:background="#e1e8ec">
 
         <TextView
-            android:id="@+id/detail_voiture"
+            android:id="@+id/title_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/rainball_font"
             android:gravity="center"
-            android:text="@string/detail_voiture"
+            android:text="@string/detail_covoitureur"
             android:textColor="#4C5175"
             android:textSize="35sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.01"
+            app:layout_constraintVertical_bias="0.037"
             tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="25dp" />
+            tools:layout_editor_absoluteX="0dp" />
+
+        <Button
+            android:id="@+id/demandeCovoiture"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_weight="1"
+            android:background="@drawable/annonce_item_style"
+            android:backgroundTint="@color/colorAccent"
+            android:gravity="center"
+            android:text="@string/Demander"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/SupprimerAnnonceCovoitureur"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/modifierAnnonceCovoitureur"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <Button
+            android:id="@+id/modifierAnnonceCovoitureur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_weight="1"
+            android:background="@drawable/annonce_item_style"
+            android:backgroundTint="@color/colorAccent"
+            android:drawableStart="@drawable/ic_edit"
+            android:gravity="center"
+            android:text="@string/modifier"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/demandeCovoiture"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <Button
+            android:id="@+id/SupprimerAnnonceCovoitureur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_weight="1"
+            android:background="@drawable/annonce_item_style"
+            android:backgroundTint="@color/colorAccent"
+            android:drawableStart="@drawable/ic_delete"
+            android:gravity="center"
+            android:text="@string/Supprimer"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/demandeCovoiture"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:layout_constraintVertical_bias="1.0" />
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/detail_nomV_covoitureur"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center" />
-
-            <TextView
-                android:id="@+id/detail_matV_covoitureur"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center" />
-
-            <TextView
-                android:id="@+id/detail_nbPlace_covoitureur"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center" />
+            android:id="@+id/linearLayout"
+            android:layout_width="354dp"
+            android:layout_height="488dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_detail"
+            app:layout_constraintVertical_bias="0.336">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_height="41dp"
+                android:layout_marginBottom="40dp"
                 android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/modifierAnnonceCovoitureur"
-                    android:layout_width="106dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="12dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/annonce_item_style"
-                    android:backgroundTint="@color/colorPrimary"
-                    android:gravity="center"
-                    android:text="@string/modifier"
-                    android:textColor="@color/colorAccent" />
+                <LinearLayout
+                    android:layout_width="175dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/demandeCovoiture"
-                    android:layout_width="128dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="12dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/annonce_item_style"
-                    android:backgroundTint="@color/colorPrimary"
-                    android:gravity="center"
-                    android:text="@string/Demander"
-                    android:textColor="@color/colorAccent" />
+                    <TextView
+                        android:layout_width="188dp"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_clock"
+                        android:gravity="left"
+                        android:text="@string/dateDepart"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_dim_detail"
+                        android:textStyle="italic" />
 
-                <Button
-                    android:id="@+id/SupprimerAnnonceCovoitureur"
-                    android:layout_width="wrap_content"
+                    <TextView
+                        android:id="@+id/detail_hrDep_covoitureur"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:gravity="center|center_horizontal" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/annonce_item_style"
-                    android:backgroundTint="@color/colorPrimary"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_depart"
+                        android:gravity="left"
+                        android:text="@string/PtDepart"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_dim_detail"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:id="@+id/detail_ptDep_covoitureur"
+                        android:layout_width="198dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center|center_horizontal" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginBottom="40dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="175dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_clock"
+                        android:gravity="left"
+                        android:text="@string/HrArrive"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_dim_detail"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:id="@+id/detail_hrArr_covoitureur"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center|center_horizontal" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="198dp"
+                    android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="@string/Supprimer"
-                    android:textColor="@color/colorAccent" />
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_depart"
+                        android:gravity="left"
+                        android:text="@string/ptArrive"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_dim_detail"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:id="@+id/detail_ptArr_covoitureur"
+                        android:layout_width="198dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center|center_horizontal" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginBottom="40dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="176dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_money"
+                        android:gravity="left"
+                        android:text="@string/prixAnnonce"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_dim_detail"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:id="@+id/detail_prix_covoitureur"
+                        android:layout_width="match_parent"
+                        android:layout_height="31dp"
+                        android:gravity="center|center_horizontal" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="199dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_nbr_sup"
+                        android:gravity="left"
+                        android:text="@string/nbPlaces"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_dim_detail"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:id="@+id/detail_placeDisp"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center|center_horizontal" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="91dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_description"
+                    android:gravity="center"
+                    android:text="@string/description"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_dim_detail"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:id="@+id/detail_desc_covoitureur"
+                    android:layout_width="match_parent"
+                    android:layout_height="33dp"
+                    android:layout_weight="1"
+                    android:gravity="center" />
 
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/detail_voiture"
+                android:layout_width="344dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:fontFamily="@font/rainball_font"
+                android:gravity="center"
+                android:text="@string/detail_voiture"
+                android:textColor="#4C5175"
+                android:textSize="35sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.01"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="25dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="53dp"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/detail_nomV_covoitureur"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/detail_matV_covoitureur"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/detail_nbPlace_covoitureur"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:gravity="center" />
+
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

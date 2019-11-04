@@ -12,11 +12,11 @@
         android:background="#e1e8ec">
 
         <TextView
-            android:id="@+id/titre"
+            android:id="@+id/titre_m"
             android:layout_width="355dp"
             android:layout_height="45dp"
             android:fontFamily="@font/rainball_font"
-            android:text="@string/ajouter_annonce"
+            android:text="@string/modifier_annonce"
             android:textAlignment="center"
             android:textColor="#4C5175"
             android:textSize="40sp"
@@ -27,7 +27,7 @@
             app:layout_constraintVertical_bias="0.051" />
 
         <TextView
-            android:id="@+id/tv_point_depart"
+            android:id="@+id/tv_point_depart1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="52dp"
@@ -36,10 +36,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.089"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titre" />
+            app:layout_constraintTop_toBottomOf="@+id/titre_m" />
 
         <EditText
-            android:id="@+id/ed_point_depart"
+            android:id="@+id/ed_point_depart_m"
             android:layout_width="164dp"
             android:layout_height="40dp"
             android:autofillHints=""
@@ -47,25 +47,25 @@
             android:hint="(e.g., Rue Abelkarim Khettabi)"
             android:inputType="textPersonName"
             android:textSize="12sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/ed_point_arrivee"
-            app:layout_constraintEnd_toStartOf="@+id/ed_point_arrivee"
+            app:layout_constraintBaseline_toBaselineOf="@+id/ed_point_arrivee_m"
+            app:layout_constraintEnd_toStartOf="@+id/ed_point_arrivee_m"
             app:layout_constraintHorizontal_bias="0.509"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/tv_point_arrivee"
+            android:id="@+id/tv_point_arrivee_m"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="52dp"
             android:text="@string/point_d_arrivee"
             android:textColor="#4C5175"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.69"
+            app:layout_constraintHorizontal_bias="0.684"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titre" />
+            app:layout_constraintTop_toBottomOf="@+id/titre_m" />
 
         <EditText
-            android:id="@+id/ed_point_arrivee"
+            android:id="@+id/ed_point_arrivee_m"
             android:layout_width="164dp"
             android:layout_height="40dp"
             android:layout_marginTop="12dp"
@@ -76,10 +76,10 @@
             android:inputType="textPersonName"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_point_arrivee" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_point_arrivee_m" />
 
         <TextView
-            android:id="@+id/tv_temps_depart"
+            android:id="@+id/tv_temps_depart_m"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
@@ -88,86 +88,90 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.092"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ed_point_depart" />
-
-        <Button
-            android:id="@+id/bt_tps_dep1"
-            android:layout_width="108dp"
-            android:layout_height="41dp"
-            android:drawableLeft="@drawable/ic_time"
-            android:textColor="#4c5175"
-            android:text="@string/choisir"
-            android:background="@drawable/annonce_item_style"
-            android:backgroundTint="@color/colorAccent"
-            app:layout_constraintBottom_toTopOf="@+id/ed_temps_depart"
-            app:layout_constraintEnd_toStartOf="@+id/bt_tps_arr1"
-            app:layout_constraintHorizontal_bias="0.254"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_temps_depart" />
-
-        <EditText
-            android:id="@+id/ed_temps_depart"
-            android:layout_width="164dp"
-            android:layout_height="40dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:textSize="12sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/ed_temps_arrivee"
-            app:layout_constraintEnd_toStartOf="@+id/ed_temps_arrivee"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/ed_point_depart_m" />
 
         <TextView
-            android:id="@+id/tv_temps_arrivee"
+            android:id="@+id/tv_temps_arrivee_m"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="40dp"
             android:text="@string/temps_d_arrivee"
             android:textColor="#4C5175"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.712"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ed_point_arrivee" />
-
-        <Button
-            android:id="@+id/bt_tps_arr1"
-            android:layout_width="108dp"
-            android:layout_height="41dp"
-            android:text="@string/choisir"
-            android:background="@drawable/annonce_item_style"
-            android:drawableLeft="@drawable/ic_time"
-            android:textColor="#4c5175"
-            android:backgroundTint="@color/colorAccent"
-            app:layout_constraintBottom_toTopOf="@+id/ed_temps_arrivee"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.706"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_temps_arrivee" />
+            app:layout_constraintTop_toBottomOf="@+id/ed_point_arrivee_m" />
 
         <EditText
-            android:id="@+id/ed_temps_arrivee"
+            android:id="@+id/ed_temps_arrivee_m"
             android:layout_width="164dp"
             android:layout_height="40dp"
-            android:layout_marginTop="56dp"
-            android:layout_marginEnd="32dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="28dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_temps_arrivee" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_temps_arrivee_m" />
+
+        <Button
+            android:id="@+id/bt_tps_arr_m"
+            android:layout_width="108dp"
+            android:layout_height="41dp"
+            android:background="@drawable/annonce_item_style"
+            android:backgroundTint="@color/colorAccent"
+            android:text="@string/choisir"
+            android:drawableLeft="@drawable/ic_time"
+            android:textColor="#4c5175"
+            app:layout_constraintBottom_toTopOf="@+id/ed_temps_arrivee_m"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.729"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_temps_arrivee_m"
+            app:layout_constraintVertical_bias="0.372" />
+
+        <EditText
+            android:id="@+id/ed_temps_depart_m"
+            android:layout_width="164dp"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textSize="12sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/ed_temps_arrivee_m"
+            app:layout_constraintEnd_toStartOf="@+id/ed_temps_arrivee_m"
+            app:layout_constraintHorizontal_bias="0.509"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/bt_tps_dep_m"
+            android:layout_width="109dp"
+            android:layout_height="39dp"
+            android:background="@drawable/annonce_item_style"
+            android:backgroundTint="@color/colorAccent"
+            android:text="@string/choisir"
+            android:drawableLeft="@drawable/ic_time"
+            android:textColor="#4c5175"
+            app:layout_constraintBottom_toTopOf="@+id/ed_temps_depart_m"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.092"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_temps_depart_m"
+            app:layout_constraintVertical_bias="0.396" />
 
         <TextView
-            android:id="@+id/tv_nbr_personnes"
+            android:id="@+id/tv_nbr_places_m"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
-            android:text="@string/nombre_de_personnes"
+            android:text="@string/nombre_de_places_ndisponibles"
             android:textColor="#4C5175"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.095"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ed_temps_depart" />
+            app:layout_constraintTop_toBottomOf="@+id/ed_temps_depart_m" />
 
         <EditText
-            android:id="@+id/ed_nbr_personnes"
+            android:id="@+id/ed_nbr_places_m"
             android:layout_width="164dp"
             android:layout_height="40dp"
             android:layout_marginTop="20dp"
@@ -176,12 +180,37 @@
             android:hint="(e.g., 3)"
             android:inputType="number"
             android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ed_prix_m"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_nbr_personnes" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_nbr_places_m" />
 
         <TextView
-            android:id="@+id/tv_description"
+            android:id="@+id/tv_prix_m"
+            android:layout_width="51dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/prix"
+            android:textColor="#4C5175"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.613"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ed_temps_arrivee_m" />
+
+        <EditText
+            android:id="@+id/ed_prix_m"
+            android:layout_width="164dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="28dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="(e.g., 50 MAD)"
+            android:inputType="number"
+            android:textSize="12sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/ed_nbr_places_m"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_description_m"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
@@ -190,12 +219,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.082"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ed_nbr_personnes" />
+            app:layout_constraintTop_toBottomOf="@+id/ed_nbr_places_m" />
 
         <EditText
-            android:id="@+id/ed_description"
-            android:layout_width="358dp"
-            android:layout_height="78dp"
+            android:id="@+id/ed_description_m"
+            android:layout_width="356dp"
+            android:layout_height="44dp"
             android:layout_marginTop="24dp"
             android:autofillHints=""
             android:ems="10"
@@ -205,20 +234,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_description" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_description_m" />
 
         <Button
-            android:id="@+id/button_ajouter"
+            android:id="@+id/button_suivant_m"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:background="@drawable/annonce_item_style"
             android:backgroundTint="@color/colorAccent"
-            android:text="@string/ajouter_annonce"
+            android:text="@string/suivant"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ed_description" />
+            app:layout_constraintTop_toBottomOf="@+id/ed_description_m" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

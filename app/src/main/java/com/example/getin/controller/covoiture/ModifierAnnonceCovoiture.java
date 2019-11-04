@@ -1,6 +1,5 @@
 package com.example.getin.controller.covoiture;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
@@ -15,57 +14,60 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.getin.R;
-import com.example.getin.controller.MainActivity;
 import com.example.getin.model.AnnonceCovoiture;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.Calendar;
 
-public class AnnonceCovoitureForm extends AppCompatActivity {
+public class ModifierAnnonceCovoiture extends AppCompatActivity {
 
     EditText point_depart,point_arrivee,heure_depart,heure_arrivee,nbr_personnes,description;
-    Button ch1,ch2,ajouter;
+    Button ch1,ch2,modifier;
+
+    int year,month,day,hour,minute;
+    String hr,annId;
 
     DatabaseReference ref;
-    AnnonceCovoiture annonceCovoiture;
-
     FirebaseAuth mFirebaseAuth = FirebaseAuth.getInstance();
     FirebaseUser user= mFirebaseAuth.getCurrentUser();
     String uid;
 
 
-    int year,month,day,hour,minute;
-    String hr;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_annonce_covoiture_form);
-        point_depart = findViewById(R.id.ed_point_depart);
-        point_arrivee = findViewById(R.id.ed_point_arrivee);
-        heure_depart = findViewById(R.id.ed_temps_depart);
+        setContentView(R.layout.activity_modifier_annonce_covoiture);
+        point_depart = findViewById(R.id.ed_point_depart_mc);
+        point_arrivee = findViewById(R.id.ed_point_arrivee_mc);
+        heure_depart = findViewById(R.id.ed_temps_depart_mc);
         heure_depart.setEnabled(false);
-        heure_arrivee = findViewById(R.id.ed_temps_arrivee);
+        heure_arrivee = findViewById(R.id.ed_temps_arrivee_mc);
         heure_arrivee.setEnabled(false);
-        nbr_personnes = findViewById(R.id.ed_nbr_personnes);
-        description = findViewById(R.id.ed_description);
-        ch1 = findViewById(R.id.bt_tps_dep1);
-        ch2 = findViewById(R.id.bt_tps_arr1);
-        ajouter = findViewById(R.id.button_ajouter);
+        nbr_personnes = findViewById(R.id.ed_nbr_personnes_mc);
+        description = findViewById(R.id.ed_description_mc);
+        ch1 = findViewById(R.id.bt_tps_dep1_mc);
+        ch2 = findViewById(R.id.bt_tps_arr1_mc);
+        modifier = findViewById(R.id.button_modifier);
+
 
         if(user != null)
-           uid = user.getUid();
-        else
-            uid = "1";
+            uid = user.getUid();
 
-        ref = FirebaseDatabase.getInstance().getReference().child("AnnonceCovoiture");
+        final AnnonceCovoiture annonceCovoiture = (AnnonceCovoiture) this.getIntent().getExtras().getSerializable("annonceM");
+        if(annonceCovoiture != null){
+            annId = annonceCovoiture.getId_annonce();
+
+            point_depart.setText(annonceCovoiture.getPoint_depart());
+            point_arrivee.setText(annonceCovoiture.getPoint_arrivee());
+            heure_depart.setText(annonceCovoiture.getHeure_depart());
+            heure_arrivee.setText(annonceCovoiture.getHeure_arrivee());
+            nbr_personnes.setText(String.valueOf(annonceCovoiture.getNbr_personnes()));
+            description.setText(annonceCovoiture.getDescription());
+        }
+
 
         View.OnClickListener showDateTimePicker = new View.OnClickListener() {
             @Override
@@ -76,7 +78,7 @@ public class AnnonceCovoitureForm extends AppCompatActivity {
                 month = c.get(Calendar.MONTH);
                 day = c.get(Calendar.DAY_OF_MONTH);
 
-                DatePickerDialog datePickerDialog = new DatePickerDialog(AnnonceCovoitureForm.this, new DatePickerDialog.OnDateSetListener() {
+                DatePickerDialog datePickerDialog = new DatePickerDialog(ModifierAnnonceCovoiture.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
 
@@ -86,7 +88,7 @@ public class AnnonceCovoitureForm extends AppCompatActivity {
                         hour = c.get(Calendar.HOUR_OF_DAY);
                         minute = c.get(Calendar.MINUTE);
 
-                        TimePickerDialog timePickerDialog = new TimePickerDialog(AnnonceCovoitureForm.this, new TimePickerDialog.OnTimeSetListener() {
+                        TimePickerDialog timePickerDialog = new TimePickerDialog(ModifierAnnonceCovoiture.this, new TimePickerDialog.OnTimeSetListener() {
                             @Override
                             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                                 if(minute < 10)
@@ -109,7 +111,7 @@ public class AnnonceCovoitureForm extends AppCompatActivity {
 
         ch2.setOnClickListener(showDateTimePicker);
 
-        ajouter.setOnClickListener(new View.OnClickListener() {
+        modifier.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String point_dep = point_depart.getText().toString().trim();
@@ -120,50 +122,30 @@ public class AnnonceCovoitureForm extends AppCompatActivity {
                 String nper = nbr_personnes.getText().toString().trim();
 
                 if (point_dep.matches("") || point_arr.matches("") || heure_dep.matches("") || heure_arr.matches("") || nper.matches(""))
-                    Toast.makeText(AnnonceCovoitureForm.this, "Veulliez remplir les champs obligatoires", Toast.LENGTH_SHORT).show();
-                else{
-                    if(!nper.matches("^(10|[0-9])$")){
-                        Toast.makeText(AnnonceCovoitureForm.this, "Nombre de personnes invalide", Toast.LENGTH_SHORT).show();
-                    }
-                    else {
+                    Toast.makeText(ModifierAnnonceCovoiture.this, "Veulliez remplir les champs obligatoires", Toast.LENGTH_SHORT).show();
+                else {
+                    if (!nper.matches("^(10|[0-9])$")) {
+                        Toast.makeText(ModifierAnnonceCovoiture.this, "Nombre de personnes invalide", Toast.LENGTH_SHORT).show();
+                    } else {
                         int nbr_pers = Integer.parseInt(nper);
 
-                        annonceCovoiture = new AnnonceCovoiture(heure_dep,heure_arr,point_dep,point_arr,desc,uid,nbr_pers);
+                        ref = FirebaseDatabase.getInstance().getReference().child("AnnonceCovoiture").child(annId);
 
-                        String genId = getAlphaNumericString(5);
+                        annonceCovoiture.setPoint_depart(point_dep);
+                        annonceCovoiture.setPoint_arrivee(point_arr);
+                        annonceCovoiture.setHeure_depart(heure_dep);
+                        annonceCovoiture.setHeure_arrivee(heure_arr);
+                        annonceCovoiture.setNbr_personnes(nbr_pers);
+                        annonceCovoiture.setDescription(desc);
+                        annonceCovoiture.setUtilisateur_id(uid);
 
-                        ref.child(genId).setValue(annonceCovoiture);
-                        Toast.makeText(AnnonceCovoitureForm.this,"Annonce ajoutée !",Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(AnnonceCovoitureForm.this, MesAnnoncesCovoiture.class));
+                        ref.setValue(annonceCovoiture);
+
+                        Toast.makeText(ModifierAnnonceCovoiture.this, "Annonce modifiée !", Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(ModifierAnnonceCovoiture.this, MesAnnoncesCovoiture.class));
                     }
                 }
             }
         });
-    }
-
-    static String getAlphaNumericString(int n)
-    {
-        // chose a Character random from this String
-        String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                + "0123456789"
-                + "abcdefghijklmnopqrstuvxyz";
-
-        // create StringBuffer size of AlphaNumericString
-        StringBuilder sb = new StringBuilder(n);
-
-        for (int i = 0; i < n; i++) {
-
-            // generate a random number between
-            // 0 to AlphaNumericString variable length
-            int index
-                    = (int)(AlphaNumericString.length()
-                    * Math.random());
-
-            // add Character one by one in end of sb
-            sb.append(AlphaNumericString
-                    .charAt(index));
-        }
-
-        return sb.toString();
     }
 }
