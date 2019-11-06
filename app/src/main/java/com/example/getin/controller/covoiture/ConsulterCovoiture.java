@@ -3,22 +3,20 @@ package com.example.getin.controller.covoiture;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.ClipData;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
+
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
+import android.widget.Filter;
 import android.widget.ListView;
 import android.widget.SearchView;
 
 import com.example.getin.R;
 import com.example.getin.controller.ProfilActivity;
-import com.example.getin.controller.covoitureur.AnnonceCovoitureurForm;
-import com.example.getin.model.AnnonceCovoiture;
 import com.example.getin.model.AnnonceCovoitureur;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
@@ -34,6 +32,7 @@ public class ConsulterCovoiture extends AppCompatActivity {
     FirebaseDatabase data;
     DatabaseReference ref;
     ArrayList<AnnonceCovoitureur> annonces=new ArrayList<>();
+    ArrayList<AnnonceCovoitureur> FilterAnnonces=new ArrayList<>();
     AnnonceCovoitureurAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +55,7 @@ public class ConsulterCovoiture extends AppCompatActivity {
         ref=data.getReference("AnnonceCovoitureur");
         //demandes = new ArrayList<>();
         adapter = new AnnonceCovoitureurAdapter(this,annonces);
+        adapter.setArrayAnnonces(FilterAnnonces);
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -64,6 +64,7 @@ public class ConsulterCovoiture extends AppCompatActivity {
                     annonce = ds.getValue(AnnonceCovoitureur.class);
                     if(annonce != null) annonce.setId_annonce(ds.getKey());
                     annonces.add(annonce);
+                    FilterAnnonces.add(annonce);
                     listAnnoncesCovoiture.setAdapter(adapter);
                 }
             }
@@ -72,8 +73,6 @@ public class ConsulterCovoiture extends AppCompatActivity {
 
             }
         });
-
-
     }
 
     // le menu
@@ -90,7 +89,7 @@ public class ConsulterCovoiture extends AppCompatActivity {
             }
             @Override
             public boolean onQueryTextChange(String newText) {
-                adapter.getFilter().filter(newText);
+                adapter.filter(newText);
                 return true;
             }
         });

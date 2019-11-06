@@ -15,13 +15,8 @@ import android.widget.SearchView;
 
 import com.example.getin.R;
 import com.example.getin.controller.ProfilActivity;
-import com.example.getin.controller.covoiture.AnnonceCovoitureForm;
-import com.example.getin.controller.covoiture.AnnonceCovoitureurAdapter;
-import com.example.getin.controller.covoiture.ConsulterCovoiture;
-import com.example.getin.controller.covoiture.MesAnnoncesCovoiture;
 import com.example.getin.controller.covoiture.MesDemmandesCovoiture;
 import com.example.getin.model.AnnonceCovoiture;
-import com.example.getin.model.AnnonceCovoitureur;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -37,6 +32,7 @@ public class ConsulterCovoitureur extends AppCompatActivity {
     FirebaseDatabase data;
     DatabaseReference ref;
     ArrayList<AnnonceCovoiture> annonces=new ArrayList<>();
+    ArrayList<AnnonceCovoiture> FilterAnnonces=new ArrayList<>();
     AnnonceCovoitureAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +54,7 @@ public class ConsulterCovoitureur extends AppCompatActivity {
         data=FirebaseDatabase.getInstance();
         ref=data.getReference("AnnonceCovoiture");
         adapter = new AnnonceCovoitureAdapter(this,annonces);
+        adapter.setArrayAnnonces(FilterAnnonces);
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -65,6 +62,7 @@ public class ConsulterCovoitureur extends AppCompatActivity {
                     AnnonceCovoiture annonce;
                     annonce = ds.getValue(AnnonceCovoiture.class);
                     annonces.add(annonce);
+                    FilterAnnonces.add(annonce);
                     listAnnoncesCovoiture.setAdapter(adapter);
                 }
             }
@@ -89,7 +87,7 @@ public class ConsulterCovoitureur extends AppCompatActivity {
             }
             @Override
             public boolean onQueryTextChange(String newText) {
-                adapter.getFilter().filter(newText);
+                adapter.filter(newText);
                 return true;
             }
         });

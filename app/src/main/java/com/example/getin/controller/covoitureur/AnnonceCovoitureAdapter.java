@@ -21,7 +21,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Locale;
 
-public class AnnonceCovoitureAdapter extends BaseAdapter implements Filterable {
+public class AnnonceCovoitureAdapter extends BaseAdapter {
     private Context mContext;
     private LayoutInflater inflater;
    private List<AnnonceCovoiture> annonceCovoitures;
@@ -32,7 +32,10 @@ public class AnnonceCovoitureAdapter extends BaseAdapter implements Filterable {
         this.annonceCovoitures =list;
         inflater = LayoutInflater.from(mContext);
         this.arrayAnnonces = new ArrayList<>();
-        arrayAnnonces.addAll(list);
+    }
+
+    public void setArrayAnnonces(ArrayList<AnnonceCovoiture> arrayAnnonces) {
+        this.arrayAnnonces = arrayAnnonces;
     }
 
     public class ViewHolderCovoiture{
@@ -109,54 +112,21 @@ public class AnnonceCovoitureAdapter extends BaseAdapter implements Filterable {
         return convertView;
     }
 
-    /*public void filter(String motCle){
-       motCle = motCle.toLowerCase(Locale.getDefault());
-       System.out.println(motCle);
-       annonceCovoitures.clear();
-       if(motCle.length()==0){
-           annonceCovoitures.addAll(arrayAnnonces);
-       }
-       else{
-           for (AnnonceCovoitureur an : this.arrayAnnonces){
-               if (an.getPoint_depart().toLowerCase(Locale.getDefault()).contains(motCle) ||
-                       an.getPoint_arrivee().toLowerCase(Locale.getDefault()).contains(motCle) ||
-                       an.getDescription().toLowerCase(Locale.getDefault()).contains(motCle)){
-                   this.annonceCovoitures.add(an);
-               }
-           }
-       }
-       notifyDataSetChanged();
-    }*/
-    @Override
-    public Filter getFilter(){
-        return new Filter() {
-            @Override
-            protected FilterResults performFiltering(CharSequence constraint) {
-                constraint=constraint.toString().toLowerCase();
-                FilterResults result= new FilterResults();
-                if (constraint != null && constraint.toString().length()>0){
-                    List<AnnonceCovoiture> founded=new ArrayList<>();
-                    for (AnnonceCovoiture an:arrayAnnonces){
-                        if (an.getPoint_depart().toLowerCase(Locale.getDefault()).contains(constraint) ||
-                                an.getPoint_arrivee().toLowerCase(Locale.getDefault()).contains(constraint) ||
-                                an.getDescription().toLowerCase(Locale.getDefault()).contains(constraint)){
-                            founded.add(an);
-                        }
-                    }
-                    result.values=founded;
+    public void filter(String motCle){
+        motCle = motCle.toLowerCase(Locale.getDefault());
+        annonceCovoitures.clear();
+        if(motCle.length()==0){
+            annonceCovoitures.addAll(arrayAnnonces);
+        }
+        else{
+            for (AnnonceCovoiture an : this.arrayAnnonces){
+                if (an.getPoint_depart().toLowerCase(Locale.getDefault()).contains(motCle) ||
+                        an.getPoint_arrivee().toLowerCase(Locale.getDefault()).contains(motCle) ||
+                        an.getDescription().toLowerCase(Locale.getDefault()).contains(motCle)){
+                    this.annonceCovoitures.add(an);
                 }
-                else {
-                    result.values= annonceCovoitures;
-                }
-                return result;
             }
-            @Override
-            protected void publishResults(CharSequence constraint, FilterResults results) {
-                annonceCovoitures.clear();
-                annonceCovoitures.addAll((List< AnnonceCovoiture>) results.values);
-                notifyDataSetChanged();
-            }
-        };
-
+        }
+        notifyDataSetChanged();
     }
 }

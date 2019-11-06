@@ -88,9 +88,6 @@ public class DetailAnnonceCovoitureur extends AppCompatActivity implements Deman
         immatricule.setText(an.getVoiture().getNum_immatriculation());
         nbPlaces.setText(an.getVoiture().getNbr_places() +" places");
 
-        Toast.makeText(DetailAnnonceCovoitureur.this,"Annonce id : "+id,Toast.LENGTH_LONG).show();
-
-
         //Action sur la demande
         demmander.setOnClickListener(new View.OnClickListener() {
             @Override

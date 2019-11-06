@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class AnnonceCovoitureurAdapter extends BaseAdapter implements Filterable {
+public class AnnonceCovoitureurAdapter extends BaseAdapter{
     private Context mContext;
     private LayoutInflater inflater;
     private List<AnnonceCovoitureur> annonceCovoitureurs;
@@ -31,10 +31,13 @@ public class AnnonceCovoitureurAdapter extends BaseAdapter implements Filterable
              this.annonceCovoitureurs=list;
              inflater = LayoutInflater.from(mContext);
              this.arrayAnnonces = new ArrayList<>();
-             arrayAnnonces.addAll(list);
    }
 
-   public static class ViewHolder{
+    public void setArrayAnnonces(ArrayList<AnnonceCovoitureur> arrayAnnonces) {
+        this.arrayAnnonces = arrayAnnonces;
+    }
+
+    public static class ViewHolder{
        TextView hrdepart,hrarrive,ptdepart,ptarrive,prix;
        FloatingActionButton annonceur;
    }
@@ -111,9 +114,8 @@ public class AnnonceCovoitureurAdapter extends BaseAdapter implements Filterable
 
     }
 
-    /*public void filter(String motCle){
+    public void filter(String motCle){
        motCle = motCle.toLowerCase(Locale.getDefault());
-       System.out.println(motCle);
        annonceCovoitureurs.clear();
        if(motCle.length()==0){
            annonceCovoitureurs.addAll(arrayAnnonces);
@@ -128,40 +130,6 @@ public class AnnonceCovoitureurAdapter extends BaseAdapter implements Filterable
            }
        }
        notifyDataSetChanged();
-    }*/
-    @Override
-    public Filter getFilter(){
-        return new Filter() {
-            @Override
-            protected FilterResults performFiltering(CharSequence constraint) {
-                constraint=constraint.toString().toLowerCase();
-                FilterResults result= new FilterResults();
-                if (constraint != null && constraint.toString().length()>0){
-                    List<AnnonceCovoitureur> founded=new ArrayList<>();
-                    for (AnnonceCovoitureur an:arrayAnnonces){
-                        if (an.getPoint_depart().toLowerCase(Locale.getDefault()).contains(constraint) ||
-                                an.getPoint_arrivee().toLowerCase(Locale.getDefault()).contains(constraint) ||
-                                an.getDescription().toLowerCase(Locale.getDefault()).contains(constraint)){
-                            founded.add(an);
-                        }
-                    }
-                    result.values=founded;
-                }
-                else {
-                    result.values=annonceCovoitureurs;
-                }
-                return result;
-            }
-            @Override
-            protected void publishResults(CharSequence constraint, FilterResults results) {
-                annonceCovoitureurs.clear();
-                for (AnnonceCovoitureur item :(List<AnnonceCovoitureur>) results.values){
-                    annonceCovoitureurs.add(item);
-                }
-                notifyDataSetChanged();
-            }
-        };
-
     }
 
 }
