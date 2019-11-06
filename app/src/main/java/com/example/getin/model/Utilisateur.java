@@ -9,6 +9,9 @@ public class Utilisateur implements Serializable {
     private String profession;
     private String telephone;
     private String CIN;
+    private String sexe;
+    private int nbrVotes;
+    private int note;
 
     public Utilisateur(String nom, String prenom, int age, String profession, String telephone, String CIN) {
         this.nom = nom;
@@ -17,6 +20,8 @@ public class Utilisateur implements Serializable {
         this.profession = profession;
         this.telephone = telephone;
         this.CIN = CIN;
+        this.nbrVotes = 0;
+        this.note = 0;
     }
 
     public Utilisateur() {}
@@ -45,6 +50,18 @@ public class Utilisateur implements Serializable {
         return CIN;
     }
 
+    public int getnbrVotes() {
+        return nbrVotes;
+    }
+
+    public int getnote() {
+        return note;
+    }
+
+    public String getSexe() {
+        return sexe;
+    }
+
     public void setNom(String nom) {
         this.nom = nom;
     }
@@ -67,5 +84,17 @@ public class Utilisateur implements Serializable {
 
     public void setCIN(String CIN) {
         this.CIN = CIN;
+    }
+
+    public void setnbrVotes(int nbrVotes) {
+        nbrVotes = nbrVotes;
+    }
+
+    public void setnote(int note) {
+        note = note;
+    }
+
+    public void setSexe(String sexe) {
+        this.sexe = sexe;
     }
 }

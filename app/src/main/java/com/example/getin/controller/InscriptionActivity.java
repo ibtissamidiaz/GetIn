@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.getin.R;
@@ -32,9 +34,12 @@ public class InscriptionActivity extends AppCompatActivity {
     private EditText telephoneField;
     private EditText CINField;
     private Button btnInscription;
+    private RadioGroup rdg;
+    private RadioButton hm,fm;
     Utilisateur utilisateur = new Utilisateur();
     FirebaseAuth mFirebaseAuth;
     DatabaseReference databaseReference;
+    String gender;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +57,14 @@ public class InscriptionActivity extends AppCompatActivity {
         telephoneField = findViewById(R.id.telephoneField);
         CINField = findViewById(R.id.CINField);
         btnInscription = findViewById(R.id.btnInscription);
+        rdg = findViewById(R.id.rdsexe);
+        hm = findViewById(R.id.homme);
+        fm = findViewById(R.id.femme);
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Utilisateur");
+
+        if(rdg.getCheckedRadioButtonId() == R.id.homme)
+            gender = "Homme";
+        else gender = "Femme";
 
         btnInscription.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,6 +126,7 @@ public class InscriptionActivity extends AppCompatActivity {
                               utilisateur.setNom(nomField.getText().toString());
                               utilisateur.setPrenom(nomField.getText().toString().trim());
                               utilisateur.setAge(age);
+                              utilisateur.setSexe(gender);
                               utilisateur.setProfession(nomField.getText().toString().trim());
                               utilisateur.setTelephone(nomField.getText().toString().trim());
                               utilisateur.setCIN(nomField.getText().toString().trim());

@@ -107,6 +107,38 @@
                     android:hint="Age" android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textColor="#4c5175"/>
 
+                <RadioGroup
+                    android:id="@+id/rdsexe"
+                    android:layout_width="268dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:id="@+id/sexe"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Sexe :"
+                        android:textColor="#FFFFFF"
+                        android:textSize="22sp" />
+
+                    <RadioButton
+                        android:id="@+id/homme"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="Homme"
+                        android:textColor="#FFFFFF"
+                        android:textSize="22sp" />
+
+                    <RadioButton
+                        android:id="@+id/femme"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Femme"
+                        android:textColor="#FFFFFF"
+                        android:textSize="22sp" />
+                </RadioGroup>
+
                 <EditText
                     android:id="@+id/professionField"
                     android:layout_width="270dp"
@@ -150,6 +182,7 @@
                     android:layout_marginTop="52dp"
                     android:background="@drawable/btn_shape_capsule"
                     android:text="S'inscrire" />
+
             </LinearLayout>
         </ScrollView>
 

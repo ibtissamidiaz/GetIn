@@ -3,6 +3,7 @@ package com.example.getin.controller.covoitureur;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.MenuItemCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -91,6 +92,8 @@ public class ConsulterCovoitureur extends AppCompatActivity {
                 return true;
             }
         });
+        MenuItem mesdemandes=menu.findItem(R.id.mesdemandes);
+        mesdemandes.setVisible(false);
         return true;
     }
 
