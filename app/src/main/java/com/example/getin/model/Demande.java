@@ -3,12 +3,13 @@ package com.example.getin.model;
 import java.io.Serializable;
 
 public class Demande implements Serializable {
-    private long utilisateur_id;
-    private long annonce_id;
+    private String id;
+    private String utilisateur_id;
+    private String annonce_id;
     private String etat;
     private String description;
 
-    public Demande(long utilisateur_id, long annonce_id, String etat, String description) {
+    public Demande(String utilisateur_id, String annonce_id, String etat, String description) {
         this.utilisateur_id = utilisateur_id;
         this.annonce_id = annonce_id;
         this.etat = etat;
@@ -17,11 +18,19 @@ public class Demande implements Serializable {
 
     public Demande() {}
 
-    public long getUtilisateur_id() {
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getUtilisateur_id() {
         return utilisateur_id;
     }
 
-    public long getAnnonce_id() {
+    public String getAnnonce_id() {
         return annonce_id;
     }
 
@@ -33,11 +42,11 @@ public class Demande implements Serializable {
         return description;
     }
 
-    public void setUtilisateur_id(long utilisateur_id) {
+    public void setUtilisateur_id(String utilisateur_id) {
         this.utilisateur_id = utilisateur_id;
     }
 
-    public void setAnnonce_id(long annonce_id) {
+    public void setAnnonce_id(String annonce_id) {
         this.annonce_id = annonce_id;
     }
 

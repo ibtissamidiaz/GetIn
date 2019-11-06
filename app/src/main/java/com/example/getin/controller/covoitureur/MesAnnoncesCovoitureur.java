@@ -12,10 +12,12 @@ import android.view.View;
 import android.widget.ListView;
 
 import com.example.getin.R;
+import com.example.getin.controller.ProfilActivity;
 import com.example.getin.controller.covoiture.AnnonceCovoitureForm;
 import com.example.getin.controller.covoiture.AnnonceCovoitureurAdapter;
 import com.example.getin.controller.covoiture.ConsulterCovoiture;
 import com.example.getin.controller.covoiture.MesAnnoncesCovoiture;
+import com.example.getin.controller.covoiture.MesDemmandesCovoiture;
 import com.example.getin.model.AnnonceCovoitureur;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
@@ -79,10 +81,8 @@ public class MesAnnoncesCovoitureur extends AppCompatActivity {
         MenuInflater inflater= getMenuInflater();
         inflater.inflate(R.menu.drop_down_menu,menu);
         MenuItem searchItem =menu.findItem(R.id.app_bar_search);
-        MenuItem mesdemandes=menu.findItem(R.id.mesdemandes);
         MenuItem mesannonces=menu.findItem(R.id.mesannonces);
         searchItem.setVisible(false);
-        mesdemandes.setVisible(false);
         mesannonces.setVisible(false);
 
 
@@ -95,7 +95,12 @@ public class MesAnnoncesCovoitureur extends AppCompatActivity {
         if (id==R.id.deconnecter){
             return true;
         }
+        if(id==R.id.mesdemandes){
+            startActivity(new Intent(this, MesDemmandesCovoiture.class));
+            return true;
+        }
         if(id==R.id.monprofil){
+            startActivity(new Intent(this, ProfilActivity.class));
             return true;
         }
         return super.onOptionsItemSelected(item);

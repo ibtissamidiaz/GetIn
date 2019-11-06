@@ -42,14 +42,14 @@ public class ResetPasswordActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String email=emailField.getText().toString();
                 if(email.isEmpty()){
-                    emailField.setError("Please enter email id");
+                    emailField.setError("Entrer votre adresse mail");
                     emailField.requestFocus();
                 }else{
                     mFirebaseAuth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()){
-                                Toast.makeText(ResetPasswordActivity.this,"Email send !",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ResetPasswordActivity.this,"Email envoyé !",Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(ResetPasswordActivity.this,MainActivity.class));
                             }
                         }

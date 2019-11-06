@@ -37,4 +37,8 @@
     <string name="Supprimer">Supprimer</string>
     <string name="mes_annonces_covoiture">Mes annonces covoituré</string>
     <string name="mes_annonces_covoitureur">Mes annonces covoitureur</string>
+    <string name="votreDescription">Votre description</string>
+    <string name="ecriver_votre_description">Ecriver votre description</string>
+    <string name="mes_demandes_acceptées">demandesAcceptées</string>
+    <string name="Evaluer">Evaluer</string>
 </resources>

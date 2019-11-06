@@ -44,7 +44,7 @@
                     android:background="@drawable/edit_text_shape"
                     android:ems="10"
                     android:hint="Email"
-                    android:inputType="textPersonName"
+                    android:inputType="textEmailAddress"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textColor="#4c5175" />
 

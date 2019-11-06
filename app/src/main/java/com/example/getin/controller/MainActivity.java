@@ -67,14 +67,14 @@ public class MainActivity extends AppCompatActivity {
                 String email=emailField.getText().toString().trim();
                 String pwd = mdpField.getText().toString();
                 if(email.isEmpty()){
-                    emailField.setError("Please enter email id");
+                    emailField.setError("Entrer votre adresse mail");
                     emailField.requestFocus();
                 }else if (pwd.isEmpty()){
-                    mdpField.setError("Please enter your password");
+                    mdpField.setError("Entrer votre mot de passe");
                     mdpField.requestFocus();
 
                 }else if(email.isEmpty() && pwd.isEmpty()){
-                    Toast.makeText(MainActivity.this,"Fields are empty !",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this,"Les champs sont vides  !",Toast.LENGTH_SHORT).show();
 
                 }
                 else {
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(!task.isSuccessful()){
-                                Toast.makeText(MainActivity.this,"Login Error , Please Login Again !",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this,"Connexion échouée , Essayer encore !",Toast.LENGTH_SHORT).show();
 
                             }
 

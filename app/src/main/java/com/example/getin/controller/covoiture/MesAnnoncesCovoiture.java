@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.widget.ListView;
 
 import com.example.getin.R;
+import com.example.getin.controller.ProfilActivity;
 import com.example.getin.controller.covoitureur.AnnonceCovoitureAdapter;
 import com.example.getin.model.AnnonceCovoiture;
 import com.google.firebase.auth.FirebaseAuth;
@@ -77,10 +78,13 @@ public class MesAnnoncesCovoiture extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id= item.getItemId();
         if (id==R.id.mesdemandes){
-            startActivity(new Intent(this, MesDemmandesCovoiture.class));
+            Intent i = new Intent(this,MesDemmandesCovoiture.class);
+            i.putExtra("espace","covoiture");
+            startActivity(i);
             return true;
         }
         if(id==R.id.monprofil){
+            startActivity(new Intent(this, ProfilActivity.class));
             return true;
         }
         if (id==R.id.deconnecter){

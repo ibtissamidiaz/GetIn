@@ -17,19 +17,34 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.getin.R;
+import com.example.getin.controller.ProfilActivity;
 import com.example.getin.controller.covoitureur.DetailAnnonceCovoiture;
 import com.example.getin.controller.covoitureur.MesAnnoncesCovoitureur;
 import com.example.getin.controller.covoitureur.ModiferAnnonceCovoitureur;
 import com.example.getin.model.AnnonceCovoiture;
 import com.example.getin.model.AnnonceCovoitureur;
+import com.example.getin.model.Demande;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class DetailAnnonceCovoitureur extends AppCompatActivity {
+import java.sql.SQLOutput;
+
+import static com.example.getin.controller.covoiture.AnnonceCovoitureForm.getAlphaNumericString;
+
+public class DetailAnnonceCovoitureur extends AppCompatActivity implements DemandeDialog.DemandeDialogListener {
     TextView hrDepart,hrArrive,ptDepart,ptArrive,placeDispo,prix,description,nomVoiture,immatricule,nbPlaces;
     Button demmander;
     Button modifier,supprimer;
-    String id;
+    String id,uid;
+    Demande demande;
+    String demandeDescription;
+    FirebaseUser user;
+    FirebaseDatabase data;
+    DatabaseReference ref;
+    int flagOk;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +52,10 @@ public class DetailAnnonceCovoitureur extends AppCompatActivity {
         Bundle b=this.getIntent().getExtras();
         final AnnonceCovoitureur an= (AnnonceCovoitureur) b.getSerializable("annonce");
         id = an.getId_annonce();
+        user= FirebaseAuth.getInstance().getCurrentUser();
+        data=FirebaseDatabase.getInstance();
+        ref=data.getReference("DemandeCovoiture");
+        uid= user.getUid();
 
         // recuperation des textView
         hrDepart=findViewById(R.id.detail_hrDep_covoitureur);
@@ -69,6 +88,9 @@ public class DetailAnnonceCovoitureur extends AppCompatActivity {
         immatricule.setText(an.getVoiture().getNum_immatriculation());
         nbPlaces.setText(an.getVoiture().getNbr_places() +" places");
 
+        Toast.makeText(DetailAnnonceCovoitureur.this,"Annonce id : "+id,Toast.LENGTH_LONG).show();
+
+
         //Action sur la demande
         demmander.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +104,11 @@ public class DetailAnnonceCovoitureur extends AppCompatActivity {
             if (action.equals("consultation")) {
                 modifier.setVisibility(View.INVISIBLE);
                 supprimer.setVisibility(View.INVISIBLE);
+            }
+            else{
+                modifier.setVisibility(View.INVISIBLE);
+                supprimer.setVisibility(View.INVISIBLE);
+                demmander.setVisibility(View.INVISIBLE);
             }
         }
         else{
@@ -123,7 +150,25 @@ public class DetailAnnonceCovoitureur extends AppCompatActivity {
                 buildDialog.show();
             }
         });
+        //Demander
+        demmander.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDialog();
+
+            }
+        });
     }
+    public void openDialog(){
+        DemandeDialog demandeDialog = new DemandeDialog(id,uid);
+        demandeDialog.show(getSupportFragmentManager(),"demande dialog");
+    }
+    /*@Override
+    public void applyTexts(String description,int flag) {
+        demandeDescription = description;
+        flagOk = flag;
+    }*/
+
 
 
     // le menu
@@ -144,11 +189,14 @@ public class DetailAnnonceCovoitureur extends AppCompatActivity {
             return true;
         }
         if (id==R.id.mesdemandes){
-            startActivity(new Intent(this, MesDemmandesCovoiture.class));
+            Intent i = new Intent(this,MesDemmandesCovoiture.class);
+            i.putExtra("espace","covoiture");
+            startActivity(i);
 
             return true;
         }
         if(id==R.id.monprofil){
+            startActivity(new Intent(this, ProfilActivity.class));
             return true;
         }
         if (id==R.id.deconnecter){
@@ -156,5 +204,6 @@ public class DetailAnnonceCovoitureur extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 
 }

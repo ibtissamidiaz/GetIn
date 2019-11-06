@@ -13,12 +13,14 @@ import com.example.getin.controller.covoiture.ConsulterCovoiture;
 import com.example.getin.controller.covoitureur.AnnonceCovoitureurForm;
 import com.example.getin.controller.covoitureur.ConsulterCovoitureur;
 import com.example.getin.model.AnnonceCovoitureur;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class ChooseAct extends AppCompatActivity {
-
+    private FirebaseAuth firebaseAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        firebaseAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.activity_choose);
 
 
@@ -40,7 +42,9 @@ public class ChooseAct extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.deconnecter:
-
+                firebaseAuth.signOut();
+                Intent i = new Intent(this,MainActivity.class);
+                startActivity(i);
                 return true;
         }
 
@@ -57,6 +61,7 @@ public class ChooseAct extends AppCompatActivity {
     public void goTOAnnonceCovoiture(View view) {
         Intent i=new Intent(this,ConsulterCovoiture.class);
         i.putExtra("action","consultation");
+        i.putExtra("espace","covoiture");
         startActivity(i);
 
     }

@@ -34,7 +34,7 @@ public class AnnonceCovoitureurAdapter extends BaseAdapter implements Filterable
              arrayAnnonces.addAll(list);
    }
 
-   public class ViewHolder{
+   public static class ViewHolder{
        TextView hrdepart,hrarrive,ptdepart,ptarrive,prix;
        FloatingActionButton annonceur;
    }

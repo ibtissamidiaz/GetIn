@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.widget.SearchView;
 
 import com.example.getin.R;
+import com.example.getin.controller.ProfilActivity;
 import com.example.getin.controller.covoiture.AnnonceCovoitureForm;
 import com.example.getin.controller.covoiture.AnnonceCovoitureurAdapter;
 import com.example.getin.controller.covoiture.ConsulterCovoiture;
@@ -81,8 +82,6 @@ public class ConsulterCovoitureur extends AppCompatActivity {
         inflater.inflate(R.menu.drop_down_menu,menu);
         MenuItem searchItem =menu.findItem(R.id.app_bar_search);
         SearchView search = (SearchView) searchItem.getActionView();
-        MenuItem mesdemandes=menu.findItem(R.id.mesdemandes);
-        mesdemandes.setVisible(false);
         search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -104,10 +103,15 @@ public class ConsulterCovoitureur extends AppCompatActivity {
             startActivity(new Intent(this, MesAnnoncesCovoitureur.class));
             return true;
         }
+        if(id==R.id.mesdemandes){
+            startActivity(new Intent(this, MesDemmandesCovoiture.class));
+            return true;
+        }
         if (id==R.id.deconnecter){
             return true;
         }
         if(id==R.id.monprofil){
+            startActivity(new Intent(this, ProfilActivity.class));
             return true;
         }
         return super.onOptionsItemSelected(item);

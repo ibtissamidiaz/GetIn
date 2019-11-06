@@ -16,6 +16,7 @@ import android.widget.ListView;
 import android.widget.SearchView;
 
 import com.example.getin.R;
+import com.example.getin.controller.ProfilActivity;
 import com.example.getin.controller.covoitureur.AnnonceCovoitureurForm;
 import com.example.getin.model.AnnonceCovoiture;
 import com.example.getin.model.AnnonceCovoitureur;
@@ -53,7 +54,7 @@ public class ConsulterCovoiture extends AppCompatActivity {
         listAnnoncesCovoiture = findViewById(R.id.liste_annonce_covoiture);
         data=FirebaseDatabase.getInstance();
         ref=data.getReference("AnnonceCovoitureur");
-        //annonces = new ArrayList<>();
+        //demandes = new ArrayList<>();
         adapter = new AnnonceCovoitureurAdapter(this,annonces);
         ref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -61,6 +62,7 @@ public class ConsulterCovoiture extends AppCompatActivity {
                 for (DataSnapshot ds: dataSnapshot.getChildren()){
                     AnnonceCovoitureur annonce;
                     annonce = ds.getValue(AnnonceCovoitureur.class);
+                    if(annonce != null) annonce.setId_annonce(ds.getKey());
                     annonces.add(annonce);
                     listAnnoncesCovoiture.setAdapter(adapter);
                 }
@@ -99,15 +101,19 @@ public class ConsulterCovoiture extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id= item.getItemId();
         if(id==R.id.mesannonces){
+
             startActivity(new Intent(this, MesAnnoncesCovoiture.class));
             return true;
         }
         if (id==R.id.mesdemandes){
-            startActivity(new Intent(this, MesDemmandesCovoiture.class));
+            Intent i = new Intent(this,MesDemmandesCovoiture.class);
+            i.putExtra("espace","covoiture");
+            startActivity(i);
 
             return true;
         }
         if(id==R.id.monprofil){
+            startActivity(new Intent(this, ProfilActivity.class));
             return true;
         }
         if (id==R.id.deconnecter){

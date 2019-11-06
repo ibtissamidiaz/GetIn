@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.getin.R;
+import com.example.getin.controller.ProfilActivity;
 import com.example.getin.controller.covoiture.DetailAnnonceCovoitureur;
 import com.example.getin.controller.covoiture.MesAnnoncesCovoiture;
 import com.example.getin.controller.covoiture.MesDemmandesCovoiture;
@@ -106,8 +107,6 @@ public class DetailAnnonceCovoiture extends AppCompatActivity {
         inflater.inflate(R.menu.drop_down_menu,menu);
         MenuItem searchItem =menu.findItem(R.id.app_bar_search);
         searchItem.setVisible(false);
-        MenuItem mesdemandes=menu.findItem(R.id.mesdemandes);
-        mesdemandes.setVisible(false);
         MenuItem profil=menu.findItem(R.id.monprofil);
 
         return true;
@@ -120,10 +119,15 @@ public class DetailAnnonceCovoiture extends AppCompatActivity {
             startActivity(new Intent(this, MesAnnoncesCovoitureur.class));
             return true;
         }
+        if(id==R.id.mesdemandes){
+            startActivity(new Intent(this, MesDemmandesCovoiture.class));
+            return true;
+        }
         if (id==R.id.deconnecter){
             return true;
         }
         if(id==R.id.monprofil){
+            startActivity(new Intent(this, ProfilActivity.class));
             return true;
         }
         return super.onOptionsItemSelected(item);

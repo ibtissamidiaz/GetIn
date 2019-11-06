@@ -60,29 +60,53 @@ public class InscriptionActivity extends AppCompatActivity {
                 String email=emailField.getText().toString();
                 String pwd = mdpField.getText().toString();
                 String confpwd = confField.getText().toString();
+                String nom = nomField.getText().toString();
+                String prenom = prenomfField.getText().toString();
+                int age = Integer.parseInt(ageField.getText().toString().trim());
+                String profession = professionField.getText().toString();
+                String telephone = telephoneField.getText().toString();
+                String CIN = CINField.getText().toString();
                 if(email.isEmpty()){
-                    emailField.setError("Please enter email ");
+                    emailField.setError("Entrer votre adresse mail ");
                     emailField.requestFocus();
                 }else if (pwd.isEmpty()){
-                    mdpField.setError("Please enter your password");
+                    mdpField.setError("Entrer votre mot de passe");
                     mdpField.requestFocus();
 
                 }else if(confpwd.isEmpty()){
-                    confField.setError("Please enter your password");
+                    confField.setError("Entrer votre mot de passe");
                     confField.requestFocus();
                 }else if(!pwd.equals(confpwd)){
-                    confField.setError("Passwords do not match");
+                    confField.setError("Les mots de passe ne sont pas identiques");
+                    confField.requestFocus();
+                }else if(nom.isEmpty()){
+                    confField.setError("Entrer votre nom");
+                    confField.requestFocus();
+                }else if(prenom.isEmpty()){
+                    confField.setError("Entrer votre prenom");
+                    confField.requestFocus();
+                }/*else if(age == null){
+                    confField.setError("Please enter your password");
+                    confField.requestFocus();
+                }*/else if(profession.isEmpty()){
+                    confField.setError("Entrer votre Profession");
+                    confField.requestFocus();
+                }else if(telephone.isEmpty()){
+                    confField.setError("Entrer votre numéro de téléphone");
+                    confField.requestFocus();
+                }else if(CIN.isEmpty()){
+                    confField.setError("Entrer votre CIN");
                     confField.requestFocus();
                 }
                 else if(email.isEmpty() && pwd.isEmpty() && confpwd.isEmpty()){
-                    Toast.makeText(InscriptionActivity.this,"Fields are empty !",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(InscriptionActivity.this,"Les champs sont vides !",Toast.LENGTH_SHORT).show();
 
                 }else {
                     mFirebaseAuth.createUserWithEmailAndPassword(email,pwd).addOnCompleteListener(InscriptionActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(!task.isSuccessful()){
-                                Toast.makeText(InscriptionActivity.this,"SignUp Unsuccessful, Please try again",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(InscriptionActivity.this,"Inscription échouée, Essayez encore ",Toast.LENGTH_SHORT).show();
                             }else {
                                 FirebaseUser user= mFirebaseAuth.getCurrentUser();
                                String uid=user.getUid();
