@@ -71,7 +71,7 @@ public class ProfilActivity extends AppCompatActivity {
                 String utelephone = dataSnapshot.child("telephone").getValue().toString();
                 String ucin = dataSnapshot.child("cin").getValue().toString();
                 String usexe = dataSnapshot.child("sexe").getValue().toString();
-                unvotes = dataSnapshot.child("nbrvotes").getValue().toString();
+                unvotes = dataSnapshot.child("nbrVotes").getValue().toString();
                 unote = dataSnapshot.child("note").getValue().toString();
 
                 DecimalFormat form = new DecimalFormat("0.0");
