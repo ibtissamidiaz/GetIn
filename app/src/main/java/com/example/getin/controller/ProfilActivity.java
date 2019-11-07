@@ -39,6 +39,7 @@ public class ProfilActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profil);
+        evaluer = findViewById(R.id.evaluer);
         user = FirebaseAuth.getInstance().getCurrentUser();
         data = FirebaseDatabase.getInstance();
         String id = this.getIntent().getStringExtra("uid");
@@ -47,6 +48,7 @@ public class ProfilActivity extends AppCompatActivity {
         }
         else{
             uid = user.getUid();
+            evaluer.setVisibility(View.GONE);
         }
 
         ref = data.getReference("Utilisateur").child(uid);
@@ -58,7 +60,6 @@ public class ProfilActivity extends AppCompatActivity {
         cin = findViewById(R.id.utilisateur_cin);
         prf = findViewById(R.id.prf);
         rate = findViewById(R.id.utilisateur_rate);
-        evaluer = findViewById(R.id.evaluer);
 
         ref.addValueEventListener( new ValueEventListener(){
             @Override
