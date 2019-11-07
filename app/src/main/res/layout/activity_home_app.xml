@@ -4,6 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.HomeApp">
+    android:background="#4c5175"
+    android:backgroundTint="#4c5175"
+    tools:context=".controller.MainActivity">
+
+    <!-- <android.support.design.widget.TextInputLayout>
+
+
+    </android.support.design.widget.TextInputLayout>-->
+
+
+    <Button
+        android:id="@+id/btnConnectFacebook"
+        android:layout_width="283dp"
+        android:layout_height="45dp"
+        android:background="@drawable/btn_connect_facebook"
+        android:drawableLeft="@drawable/image_facebook"
+        android:paddingEnd="5px"
+        android:text="Sign in"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="173dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnConnectGoogle"
+        android:layout_width="283dp"
+        android:layout_height="45dp"
+        android:background="@drawable/edit_text_shape"
+        android:drawableLeft="@drawable/image_google"
+        android:paddingLeft="10px"
+        android:text="Sign in"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="257dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnConnectGetIn"
+        android:layout_width="283dp"
+        android:layout_height="45dp"
+        android:background="@drawable/btn_connect_facebook"
+        android:drawableLeft="@drawable/image_facebook"
+        android:text="Sign in"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="343dp"
+        tools:ignore="MissingConstraints" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:visibility="visible"
+        tools:ignore="MissingConstraints" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
