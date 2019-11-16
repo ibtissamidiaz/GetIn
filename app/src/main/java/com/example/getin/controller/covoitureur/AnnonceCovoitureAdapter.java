@@ -13,6 +13,7 @@ import android.widget.Filterable;
 import android.widget.TextView;
 
 import com.example.getin.R;
+import com.example.getin.controller.ProfilActivity;
 import com.example.getin.model.AnnonceCovoiture;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -106,6 +107,9 @@ public class AnnonceCovoitureAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 //code pour voir le profil de l'annonceur
+                Intent i = new Intent(mContext, ProfilActivity.class);
+                i.putExtra("uid",annonceCovoitures.get(position).getUtilisateur_id());
+                mContext.startActivity(i);
             }
         });
 

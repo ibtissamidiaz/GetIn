@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.getin.R;
+import com.example.getin.controller.MainActivity;
 import com.example.getin.controller.ProfilActivity;
 import com.example.getin.controller.covoiture.DetailAnnonceCovoitureur;
 import com.example.getin.controller.covoiture.MesAnnoncesCovoiture;
@@ -24,6 +25,7 @@ import com.example.getin.controller.covoiture.MesDemmandesCovoiture;
 import com.example.getin.controller.covoiture.ModifierAnnonceCovoiture;
 import com.example.getin.model.AnnonceCovoiture;
 import com.example.getin.model.AnnonceCovoitureur;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -124,6 +126,11 @@ public class DetailAnnonceCovoiture extends AppCompatActivity {
             return true;
         }
         if (id==R.id.deconnecter){
+            FirebaseAuth.getInstance().signOut();
+            Intent i = new Intent(this, MainActivity.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(i);
+            /*finish();*/
             return true;
         }
         if(id==R.id.monprofil){

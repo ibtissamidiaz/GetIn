@@ -16,9 +16,11 @@ import android.widget.ListView;
 import android.widget.SearchView;
 
 import com.example.getin.R;
+import com.example.getin.controller.MainActivity;
 import com.example.getin.controller.ProfilActivity;
 import com.example.getin.model.AnnonceCovoitureur;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,6 +32,7 @@ import java.util.ArrayList;
 public class ConsulterCovoiture extends AppCompatActivity {
     ListView listAnnoncesCovoiture;
     FirebaseDatabase data;
+    FirebaseAuth firebaseAuth;
     DatabaseReference ref;
     ArrayList<AnnonceCovoitureur> annonces=new ArrayList<>();
     ArrayList<AnnonceCovoitureur> FilterAnnonces=new ArrayList<>();
@@ -108,7 +111,6 @@ public class ConsulterCovoiture extends AppCompatActivity {
             Intent i = new Intent(this,MesDemmandesCovoiture.class);
             i.putExtra("espace","covoiture");
             startActivity(i);
-
             return true;
         }
         if(id==R.id.monprofil){
@@ -116,6 +118,11 @@ public class ConsulterCovoiture extends AppCompatActivity {
             return true;
         }
         if (id==R.id.deconnecter){
+            FirebaseAuth.getInstance().signOut();
+            Intent i = new Intent(this, MainActivity.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(i);
+            /*finish();*/
             return true;
         }
         return super.onOptionsItemSelected(item);

@@ -13,6 +13,7 @@ import android.widget.Filterable;
 import android.widget.TextView;
 
 import com.example.getin.R;
+import com.example.getin.controller.ProfilActivity;
 import com.example.getin.model.AnnonceCovoitureur;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class AnnonceCovoitureurAdapter extends BaseAdapter{
+public class AnnonceCovoitureurAdapter extends BaseAdapter implements DemandeDialog.DemandeDialogListener {
     private Context mContext;
     private LayoutInflater inflater;
     private List<AnnonceCovoitureur> annonceCovoitureurs;
@@ -64,7 +65,7 @@ public class AnnonceCovoitureurAdapter extends BaseAdapter{
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-       ViewHolder holder;
+       final ViewHolder holder;
        if(convertView==null){
            holder = new ViewHolder();
            convertView = inflater.inflate(R.layout.annonce_covoitureur_item,null);
@@ -86,6 +87,7 @@ public class AnnonceCovoitureurAdapter extends BaseAdapter{
        holder.hrarrive.setText(annonceCovoitureurs.get(position).getHeure_arrivee());
        holder.prix.setText(annonceCovoitureurs.get(position).getPrix() + " DH ");
 
+
        convertView.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
@@ -106,8 +108,12 @@ public class AnnonceCovoitureurAdapter extends BaseAdapter{
            @Override
            public void onClick(View v) {
                //code pour voir le profil de l'annonceur
+               Intent i = new Intent(mContext, ProfilActivity.class);
+               i.putExtra("uid",annonceCovoitureurs.get(position).getUtilisateur_id());
+               mContext.startActivity(i);
            }
        });
+
 
         return convertView;
 

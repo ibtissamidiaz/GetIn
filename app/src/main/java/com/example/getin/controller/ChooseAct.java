@@ -35,6 +35,7 @@ public class ChooseAct extends AppCompatActivity {
         mesdemandes.setVisible(false);
         MenuItem searchItem =menu.findItem(R.id.app_bar_search);
         searchItem.setVisible(false);
+
         return true;
     }
     //gère le click sur une action de l'ActionBar
@@ -44,7 +45,12 @@ public class ChooseAct extends AppCompatActivity {
             case R.id.deconnecter:
                 firebaseAuth.signOut();
                 Intent i = new Intent(this,MainActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(i);
+                /*finish();*/
+                return true;
+            case R.id.monprofil:
+                startActivity(new Intent(this, ProfilActivity.class));
                 return true;
         }
 

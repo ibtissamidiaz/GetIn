@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.widget.ListView;
 
 import com.example.getin.R;
+import com.example.getin.controller.MainActivity;
 import com.example.getin.controller.ProfilActivity;
 import com.example.getin.controller.covoitureur.AnnonceCovoitureAdapter;
 import com.example.getin.model.AnnonceCovoiture;
@@ -88,6 +89,11 @@ public class MesAnnoncesCovoiture extends AppCompatActivity {
             return true;
         }
         if (id==R.id.deconnecter){
+            FirebaseAuth.getInstance().signOut();
+            Intent i = new Intent(this, MainActivity.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(i);
+            /*finish();*/
             return true;
         }
         return super.onOptionsItemSelected(item);

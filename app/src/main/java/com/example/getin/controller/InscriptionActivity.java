@@ -106,6 +106,9 @@ public class InscriptionActivity extends AppCompatActivity {
                 }else if(telephone.isEmpty()){
                     confField.setError("Entrer votre numéro de téléphone");
                     confField.requestFocus();
+                }else if(telephone.length() != 10){
+                    confField.setError("votre numéro de telephone est incorrect");
+                    confField.requestFocus();
                 }else if(CIN.isEmpty()){
                     confField.setError("Entrer votre CIN");
                     confField.requestFocus();

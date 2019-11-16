@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.getin.R;
+import com.example.getin.controller.MainActivity;
 import com.example.getin.controller.ProfilActivity;
 import com.example.getin.controller.covoitureur.DetailAnnonceCovoiture;
 import com.example.getin.controller.covoitureur.MesAnnoncesCovoitureur;
@@ -151,7 +152,13 @@ public class DetailAnnonceCovoitureur extends AppCompatActivity implements Deman
         demmander.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openDialog();
+
+                if(an.getUtilisateur_id().equals(uid)){
+                    Toast.makeText(DetailAnnonceCovoitureur.this,"Vous ne pouvez pas envoyer une demande sur votre annonce !",Toast.LENGTH_SHORT).show();
+                }else{
+                    openDialog();
+                }
+
 
             }
         });
@@ -160,13 +167,6 @@ public class DetailAnnonceCovoitureur extends AppCompatActivity implements Deman
         DemandeDialog demandeDialog = new DemandeDialog(id,uid);
         demandeDialog.show(getSupportFragmentManager(),"demande dialog");
     }
-    /*@Override
-    public void applyTexts(String description,int flag) {
-        demandeDescription = description;
-        flagOk = flag;
-    }*/
-
-
 
     // le menu
     @Override
@@ -197,6 +197,11 @@ public class DetailAnnonceCovoitureur extends AppCompatActivity implements Deman
             return true;
         }
         if (id==R.id.deconnecter){
+            FirebaseAuth.getInstance().signOut();
+            Intent i = new Intent(this, MainActivity.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(i);
+            /*finish();*/
             return true;
         }
         return super.onOptionsItemSelected(item);

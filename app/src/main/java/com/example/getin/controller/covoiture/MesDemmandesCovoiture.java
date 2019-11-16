@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.widget.ListView;
 
 import com.example.getin.R;
+import com.example.getin.controller.MainActivity;
 import com.example.getin.controller.ProfilActivity;
 import com.example.getin.controller.covoitureur.MesAnnoncesCovoitureur;
 import com.example.getin.model.Demande;
@@ -26,7 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MesDemmandesCovoiture extends AppCompatActivity {
+public class MesDemmandesCovoiture extends AppCompatActivity implements DemandeDialog.DemandeDialogListener {
 
     ListView listDemandeCovoiture;
     FirebaseDatabase data;
@@ -34,6 +35,7 @@ public class MesDemmandesCovoiture extends AppCompatActivity {
     List<Demande> demandes = new ArrayList<>();
     DemandeCovoitureurAdapter adapter;
     FirebaseUser user;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,11 +60,13 @@ public class MesDemmandesCovoiture extends AppCompatActivity {
                     for (DataSnapshot ds : dataSnapshot.getChildren()) {
                         Demande demande;
                         demande = ds.getValue(Demande.class);
-                        if(demande != null) demande.setId(ds.getKey());
-                        demandes.add(demande);
+
+                            if (demande != null) demande.setId(ds.getKey());
+                            demandes.add(demande);
+                        }
                         listDemandeCovoiture.setAdapter(adapter);
                     }
-                }
+
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) { }
             });
@@ -80,8 +84,10 @@ public class MesDemmandesCovoiture extends AppCompatActivity {
                                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                                     Demande demande;
                                     demande = ds.getValue(Demande.class);
+                                    if(demande.getEtat().equals("Acceptée") || demande.getEtat().equals("En attente")){
                                     if(demande != null) demande.setId(ds.getKey());
                                     demandes.add(demande);
+                                    }
                                     listDemandeCovoiture.setAdapter(adapter);
                                 }
                             }
@@ -120,6 +126,11 @@ public class MesDemmandesCovoiture extends AppCompatActivity {
             return true;
         }
         if (id==R.id.deconnecter){
+            FirebaseAuth.getInstance().signOut();
+            Intent i = new Intent(this, MainActivity.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(i);
+            /*finish();*/
             return true;
         }
         return super.onOptionsItemSelected(item);
