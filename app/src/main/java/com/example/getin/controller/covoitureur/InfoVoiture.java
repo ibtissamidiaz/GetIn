@@ -74,6 +74,7 @@ public class InfoVoiture extends AppCompatActivity {
                                 ref.child(genId).setValue(annonceCovoitureur);
                                 Toast.makeText(InfoVoiture.this, "Annonce ajoutée !", Toast.LENGTH_LONG).show();
                                 startActivity(new Intent(InfoVoiture.this, MesAnnoncesCovoitureur.class));
+                                finish();
                             }
                         }
                     }

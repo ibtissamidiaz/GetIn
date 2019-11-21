@@ -126,6 +126,7 @@ public class AnnonceCovoitureurForm extends AppCompatActivity {
 
 
                             startActivity(intent);
+                            finish();
                         }
                     }
                 }

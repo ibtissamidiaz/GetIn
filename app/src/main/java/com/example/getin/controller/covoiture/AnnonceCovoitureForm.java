@@ -135,6 +135,7 @@ public class AnnonceCovoitureForm extends AppCompatActivity {
                         ref.child(genId).setValue(annonceCovoiture);
                         Toast.makeText(AnnonceCovoitureForm.this,"Annonce ajoutée !",Toast.LENGTH_LONG).show();
                         startActivity(new Intent(AnnonceCovoitureForm.this, MesAnnoncesCovoiture.class));
+                        finish();
                     }
                 }
             }

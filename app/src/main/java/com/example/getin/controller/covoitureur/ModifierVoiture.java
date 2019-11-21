@@ -81,6 +81,7 @@ public class ModifierVoiture extends AppCompatActivity {
 
                                 Toast.makeText(ModifierVoiture.this, "Annonce modifiée !", Toast.LENGTH_LONG).show();
                                 startActivity(new Intent(ModifierVoiture.this, MesAnnoncesCovoitureur.class));
+                                finish();
                             }
                         }
                     }

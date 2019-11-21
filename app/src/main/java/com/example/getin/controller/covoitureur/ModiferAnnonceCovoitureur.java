@@ -143,6 +143,7 @@ public class ModiferAnnonceCovoitureur extends AppCompatActivity {
                             intent.putExtra("annonceM", annonceCovoitureur);
 
                             startActivity(intent);
+                            finish();
                         }
                     }
                 }

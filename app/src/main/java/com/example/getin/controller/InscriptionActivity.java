@@ -132,6 +132,7 @@ public class InscriptionActivity extends AppCompatActivity {
                               databaseReference.child(uid).setValue(utilisateur);
 
                                 startActivity(new Intent(InscriptionActivity.this,MainActivity.class));
+                                finish();
                             }
                         }
                     });
