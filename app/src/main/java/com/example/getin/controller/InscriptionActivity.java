@@ -35,7 +35,7 @@ public class InscriptionActivity extends AppCompatActivity {
     private EditText CINField;
     private Button btnInscription;
     private RadioGroup rdg;
-    private RadioButton hm,fm;
+    private RadioButton sex;
     Utilisateur utilisateur = new Utilisateur();
     FirebaseAuth mFirebaseAuth;
     DatabaseReference databaseReference;
@@ -58,13 +58,9 @@ public class InscriptionActivity extends AppCompatActivity {
         CINField = findViewById(R.id.CINField);
         btnInscription = findViewById(R.id.btnInscription);
         rdg = findViewById(R.id.rdsexe);
-        hm = findViewById(R.id.homme);
-        fm = findViewById(R.id.femme);
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Utilisateur");
 
-        if(rdg.getCheckedRadioButtonId() == R.id.homme)
-            gender = "Homme";
-        else gender = "Femme";
+
 
         btnInscription.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,14 +74,17 @@ public class InscriptionActivity extends AppCompatActivity {
                 String profession = professionField.getText().toString();
                 String telephone = telephoneField.getText().toString();
                 String CIN = CINField.getText().toString();
+                int selected = rdg.getCheckedRadioButtonId();
+                sex = (RadioButton) findViewById(selected);
+                gender = sex.getText().toString();
+
                 if(email.isEmpty()){
                     emailField.setError("Entrer votre adresse mail ");
                     emailField.requestFocus();
                 }else if (pwd.isEmpty()){
                     mdpField.setError("Entrer votre mot de passe");
                     mdpField.requestFocus();
-
-                }else if(confpwd.isEmpty()){
+                } else  if(confpwd.isEmpty()){
                     confField.setError("Entrer votre mot de passe");
                     confField.requestFocus();
                 }else if(!pwd.equals(confpwd)){
@@ -97,10 +96,7 @@ public class InscriptionActivity extends AppCompatActivity {
                 }else if(prenom.isEmpty()){
                     prenomfField.setError("Entrer votre prenom");
                     prenomfField.requestFocus();
-                }/*else if(ageField.){
-                    confField.setError("Please enter your password");
-                    confField.requestFocus();
-                }*/else if(profession.isEmpty()){
+                }else if(profession.isEmpty()){
                     professionField.setError("Entrer votre Profession");
                     professionField.requestFocus();
                 }else if(telephone.isEmpty()){
@@ -127,12 +123,12 @@ public class InscriptionActivity extends AppCompatActivity {
                                String uid=user.getUid();
                                int age = Integer.parseInt(ageField.getText().toString().trim());
                               utilisateur.setNom(nomField.getText().toString());
-                              utilisateur.setPrenom(nomField.getText().toString().trim());
+                              utilisateur.setPrenom(prenomfField.getText().toString().trim());
                               utilisateur.setAge(age);
                               utilisateur.setSexe(gender);
-                              utilisateur.setProfession(nomField.getText().toString().trim());
-                              utilisateur.setTelephone(nomField.getText().toString().trim());
-                              utilisateur.setCIN(nomField.getText().toString().trim());
+                              utilisateur.setProfession(professionField.getText().toString().trim());
+                              utilisateur.setTelephone(telephoneField.getText().toString().trim());
+                              utilisateur.setCIN(CINField.getText().toString().trim());
                               databaseReference.child(uid).setValue(utilisateur);
 
                                 startActivity(new Intent(InscriptionActivity.this,MainActivity.class));

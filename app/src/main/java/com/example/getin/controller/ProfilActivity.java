@@ -86,8 +86,8 @@ public class ProfilActivity extends AppCompatActivity {
                 telephone.setText(utelephone);
                 cin.setText(ucin);
 
-                if(usexe.equals("Femme")) prf.setImageResource(R.drawable.girl1);
-                else prf.setImageResource(R.drawable.boy2);
+                if(usexe.equals("Femme")) prf.setImageResource(R.drawable.girl);
+                else prf.setImageResource(R.drawable.boy);
 
             }
 
