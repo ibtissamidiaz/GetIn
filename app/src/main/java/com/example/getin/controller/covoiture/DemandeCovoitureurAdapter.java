@@ -158,7 +158,7 @@ public class DemandeCovoitureurAdapter extends BaseAdapter implements DemandeDia
                     //suppression
                     AlertDialog.Builder buildDialog = new AlertDialog.Builder(mContext);
                     buildDialog.setTitle("Confirmation");
-                    buildDialog.setMessage("Etes-vous sûr de vouloir supprimer l'annonce ?");
+                    buildDialog.setMessage("Etes-vous sûr de vouloir supprimer la demande ?");
                     buildDialog.setPositiveButton("Oui", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {

@@ -45,6 +45,9 @@ public class ProfilActivity extends AppCompatActivity {
         String id = this.getIntent().getStringExtra("uid");
         if (id != null){
             uid=id;
+            if(id.equals(user.getUid())){
+                evaluer.setVisibility(View.GONE);
+            }
         }
         else{
             uid = user.getUid();
@@ -125,7 +128,7 @@ public class ProfilActivity extends AppCompatActivity {
                         uv += 1;
 
                         ref.child("note").setValue(un);
-                        ref.child("nbrvotes").setValue(uv);
+                        ref.child("nbrVotes").setValue(uv);
 
                         Toast.makeText(ProfilActivity.this,"Evaluation effectuée !",Toast.LENGTH_LONG).show();
                     }
