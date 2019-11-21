@@ -97,7 +97,7 @@ public class InscriptionActivity extends AppCompatActivity {
                 }else if(prenom.isEmpty()){
                     prenomfField.setError("Entrer votre prenom");
                     prenomfField.requestFocus();
-                }/*else if(age == null){
+                }/*else if(ageField.){
                     confField.setError("Please enter your password");
                     confField.requestFocus();
                 }*/else if(profession.isEmpty()){

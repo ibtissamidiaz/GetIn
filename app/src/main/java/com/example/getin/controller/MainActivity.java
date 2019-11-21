@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText emailField;
     private EditText mdpField;
     private Button btnConnect;
-    private TextView btnInscrire;
+    private Button btnInscrire;
     private TextView btnmdp;
     private ProgressBar progressBar;
     private FirebaseAuth mFirebaseAuth;
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         mFirebaseAuth = FirebaseAuth.getInstance();
         emailField = findViewById(R.id.emailField);
         mdpField= findViewById(R.id.mdpField);
-        btnmdp = findViewById(R.id.btnReset);
+       /* btnmdp = findViewById(R.id.btnReset);*/
         progressBar = findViewById(R.id.progressBar);
         btnConnect = findViewById(R.id.btnConnect);
         btnInscrire = findViewById(R.id.btnInscrire);
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        btnmdp.setOnClickListener(new View.OnClickListener(){
+       /* btnmdp.setOnClickListener(new View.OnClickListener(){
             @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View v) {
@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent i = new Intent(MainActivity.this,ResetPasswordActivity.class);
                 startActivity(i);
             }
-        });
+        });*/
 
 
 
