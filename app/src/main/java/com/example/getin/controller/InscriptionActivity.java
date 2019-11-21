@@ -92,26 +92,26 @@ public class InscriptionActivity extends AppCompatActivity {
                     confField.setError("Les mots de passe ne sont pas identiques");
                     confField.requestFocus();
                 }else if(nom.isEmpty()){
-                    confField.setError("Entrer votre nom");
-                    confField.requestFocus();
+                    nomField.setError("Entrer votre nom");
+                    nomField.requestFocus();
                 }else if(prenom.isEmpty()){
-                    confField.setError("Entrer votre prenom");
-                    confField.requestFocus();
+                    prenomfField.setError("Entrer votre prenom");
+                    prenomfField.requestFocus();
                 }/*else if(age == null){
                     confField.setError("Please enter your password");
                     confField.requestFocus();
                 }*/else if(profession.isEmpty()){
-                    confField.setError("Entrer votre Profession");
-                    confField.requestFocus();
+                    professionField.setError("Entrer votre Profession");
+                    professionField.requestFocus();
                 }else if(telephone.isEmpty()){
-                    confField.setError("Entrer votre numéro de téléphone");
-                    confField.requestFocus();
+                    telephoneField.setError("Entrer votre numéro de téléphone");
+                    telephoneField.requestFocus();
                 }else if(telephone.length() != 10){
-                    confField.setError("votre numéro de telephone est incorrect");
-                    confField.requestFocus();
+                    telephoneField.setError("votre numéro de telephone est incorrect");
+                    telephoneField.requestFocus();
                 }else if(CIN.isEmpty()){
-                    confField.setError("Entrer votre CIN");
-                    confField.requestFocus();
+                    CINField.setError("Entrer votre CIN");
+                    CINField.requestFocus();
                 }
                 else if(email.isEmpty() && pwd.isEmpty() && confpwd.isEmpty()){
                     Toast.makeText(InscriptionActivity.this,"Les champs sont vides !",Toast.LENGTH_SHORT).show();

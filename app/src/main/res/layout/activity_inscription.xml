@@ -80,7 +80,7 @@
                     android:background="@drawable/edit_text_shape"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:hint="Last name"
+                    android:hint="Nom"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textColor="#4c5175"/>
 
@@ -92,7 +92,7 @@
                     android:background="@drawable/edit_text_shape"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:hint="First name"
+                    android:hint="Prénom"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textColor="#4c5175"/>
 
@@ -159,7 +159,7 @@
                     android:background="@drawable/edit_text_shape"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:hint="Phone"
+                    android:hint="Numéro de téléphone"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textColor="#4c5175"/>
 
