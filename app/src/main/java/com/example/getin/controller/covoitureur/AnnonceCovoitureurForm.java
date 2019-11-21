@@ -80,7 +80,7 @@ public class AnnonceCovoitureurForm extends AppCompatActivity {
                                      else
                                          hr += hourOfDay+"h"+minute;
 
-                                     if (vv.getId() == R.id.bt_tps_dep_m)
+                                     if (vv.getId() == R.id.bt_tps_dep1)
                                          heure_depart.setText(hr);
                                      else
                                          heure_arrivee.setText(hr);

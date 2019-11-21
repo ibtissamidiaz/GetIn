@@ -69,6 +69,5 @@ public class ChooseAct extends AppCompatActivity {
         i.putExtra("action","consultation");
         i.putExtra("espace","covoiture");
         startActivity(i);
-
     }
 }
